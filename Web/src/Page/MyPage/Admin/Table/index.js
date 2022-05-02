@@ -1,3 +1,5 @@
-export default function AdminTable() {
+const AdminTable = () => {
   return <div>AdminTable Page</div>;
-}
+};
+
+export default AdminTable;

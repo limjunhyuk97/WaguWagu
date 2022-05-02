@@ -1,3 +1,5 @@
-export default function AdminStore() {
+const AdminStore = () => {
   return <div>AdminStore Page</div>;
-}
+};
+
+export default AdminStore;

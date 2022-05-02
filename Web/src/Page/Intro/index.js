@@ -1,5 +1,5 @@
-import React from "react";
-
-export default function Intro() {
+const Intro = () => {
   return <div>Pre-Login Page</div>;
-}
+};
+
+export default Intro;
