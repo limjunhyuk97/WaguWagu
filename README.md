@@ -4,11 +4,11 @@
 
 ##  Ground Rule
 
-### Issue 규칙
+### 💡 Issue 규칙
 
-### Commit 규칙
+### 💡 Commit 규칙
 
-### Git Branch 규칙
+### 💡 Git Branch 규칙
 
 ## 🛠 기술 스택
 
