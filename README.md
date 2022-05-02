@@ -6,15 +6,19 @@
 
 ### 💡 Issue 규칙
 
-[Rules]()
+[Rules](https://github.com/ajou-swe-2022/WaguWagu/wiki/%EC%9D%B4%EC%8A%88-%EA%B7%9C%EC%B9%99)
 
 ### 💡 Commit 규칙
 
-[Rules]()
+[Rules](https://github.com/ajou-swe-2022/WaguWagu/wiki/%EC%BB%A4%EB%B0%8B-%EA%B7%9C%EC%B9%99)
 
-### 💡 Git Branch 규칙
+### 💡 Git Branch 전략
 
 [Rules](https://blog.appkr.dev/learn-n-think/comparing-workflows/#32-%EC%9D%B4%EB%A0%A5%EC%9D%84-%EA%B8%B0%EB%A1%9D%ED%95%98%EB%8A%94-%EB%B8%8C%EB%9E%9C%EC%B9%98)
+
+### 💡 PR 규칙
+
+[Rules](https://github.com/ajou-swe-2022/WaguWagu/wiki/PR-%EA%B7%9C%EC%B9%99)
 
 ## 🛠 기술 스택
 
