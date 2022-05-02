@@ -9,25 +9,21 @@ import {
   Admin,
   AdminTable,
   AdminStore,
-  Error,
-} from "@Page";
+} from "@Pages";
 
 const App = () => {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Intro />} />
-          <Route path="/intro" element={<Intro />} />
-          <Route path="/enroll" element={<Enroll />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/main" element={<Main />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/admin/store" element={<AdminStore />} />
-          <Route path="/admin/table" element={<AdminTable />} />
-          <Route path="/*" element={<Error />} />
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/intro" element={<Intro />} />
+        <Route path="/enroll" element={<Enroll />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/main" element={<Main />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/store" element={<AdminStore />} />
+        <Route path="/admin/table" element={<AdminTable />} />\
+        <Route path="/" element={<Intro />} />
+      </Routes>
     </>
   );
 };
