@@ -6,12 +6,10 @@ import { useState, useEffect } from "react";
 const Intro = () => {
   return (
     <>
-      <Slider {...CarouselSettings}>
-        <IntroTemplate turn={1} />
-        <IntroTemplate turn={2} />
-        <IntroTemplate turn={3} />
-        <IntroTemplate turn={4} />
-      </Slider>
+      <IntroTemplate turn={1} />
+      <IntroTemplate turn={2} />
+      <IntroTemplate turn={3} />
+      <IntroTemplate turn={4} />
     </>
   );
 };
