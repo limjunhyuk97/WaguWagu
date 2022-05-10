@@ -7,11 +7,14 @@ import _ from "lodash";
 
 const Intro = () => {
   const [curPage, setCurPage] = useState(1);
+  const [nextFlag, setNextFlag] = useState(window.innerHeight / 20);
+  const [beforeFlag, setBeforeFlag] = useState(0);
 
   const getNext = (cur) => {
-    console.log("next!");
     if (cur < IntroBanner[0]) {
-      window.scrollTo(0, window.innerHeight * (cur + 1));
+      window.scrollTo(0, window.innerHeight * cur);
+      setNextFlag(window.innerHeight * cur + window.innerHeight / 20);
+      setBeforeFlag(window.innerHeight * cur - window.innerHeight / 20);
       return cur + 1;
     }
     return cur;
@@ -19,22 +22,20 @@ const Intro = () => {
 
   const getPrev = (cur) => {
     if (cur !== 1) {
-      window.scrollTo(0, window.innerHeight * (cur - 1));
+      cur -= 1;
+      window.scrollTo(0, window.innerHeight * cur);
+      setNextFlag(window.innerHeight * (cur - 1) + window.innerHeight / 20);
+      setBeforeFlag(window.innerHeight * (cur - 1) - window.innerHeight / 20);
       return cur - 1;
     }
     return cur;
   };
 
   const handleScroll = () => {
-    console.log(`Y축 ${window.scrollY}`);
-    console.log(`뷰포트 크기 ${window.innerHeight / 20}`);
-    const flag = (curPage - 1) * window.innerHeight + window.innerHeight / 20;
-    // 내려가는 경우
-    if (window.scrollY > flag) {
+    if (window.scrollY > nextFlag) {
       setCurPage(getNext);
     }
-    // 올라가는 경우
-    else {
+    if (window.scrollY < beforeFlag) {
       setCurPage(getPrev);
     }
   };
