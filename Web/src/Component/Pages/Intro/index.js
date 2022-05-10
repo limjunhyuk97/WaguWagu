@@ -11,21 +11,23 @@ const Intro = () => {
   const [beforeFlag, setBeforeFlag] = useState(0);
 
   const getNext = (cur) => {
+    const frame = window.innerHeight;
     if (cur < IntroBanner[0]) {
-      window.scrollTo(0, window.innerHeight * cur);
-      setNextFlag(window.innerHeight * cur + window.innerHeight / 20);
-      setBeforeFlag(window.innerHeight * cur - window.innerHeight / 20);
+      window.scrollTo(0, frame * cur);
+      setNextFlag(frame * cur + frame / 8);
+      setBeforeFlag(frame * cur - frame / 8);
       return cur + 1;
     }
     return cur;
   };
 
   const getPrev = (cur) => {
+    const frame = window.innerHeight;
     if (cur !== 1) {
       cur -= 1;
-      window.scrollTo(0, window.innerHeight * cur);
-      setNextFlag(window.innerHeight * (cur - 1) + window.innerHeight / 20);
-      setBeforeFlag(window.innerHeight * (cur - 1) - window.innerHeight / 20);
+      window.scrollTo(0, frame * cur);
+      setNextFlag(frame * (cur - 1) + frame / 8);
+      setBeforeFlag(frame * (cur - 1) - frame / 8);
       return cur - 1;
     }
     return cur;
@@ -42,6 +44,7 @@ const Intro = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+    // unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
