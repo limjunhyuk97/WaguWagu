@@ -3,7 +3,6 @@ import { IntroBanner } from "@Constant/";
 import { SwapContainer } from "./styles";
 import { Swap } from "@Organisms/Intro";
 import { useState, useEffect } from "react";
-import _ from "lodash";
 
 const Intro = () => {
   const [curPage, setCurPage] = useState(1);
