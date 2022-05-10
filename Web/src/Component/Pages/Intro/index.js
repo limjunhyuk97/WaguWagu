@@ -9,12 +9,14 @@ const Intro = () => {
   const [nextFlag, setNextFlag] = useState(window.innerHeight / 20);
   const [beforeFlag, setBeforeFlag] = useState(0);
 
+  const ratio = 3;
+
   const getNext = (cur) => {
     const frame = window.innerHeight;
     if (cur < IntroBanner[0]) {
       window.scrollTo(0, frame * cur);
-      setNextFlag(frame * cur + frame / 8);
-      setBeforeFlag(frame * cur - frame / 8);
+      setNextFlag(frame * cur + frame / ratio);
+      setBeforeFlag(frame * cur - frame / ratio);
       return cur + 1;
     }
     return cur;
@@ -25,8 +27,8 @@ const Intro = () => {
     if (cur !== 1) {
       cur -= 1;
       window.scrollTo(0, frame * cur);
-      setNextFlag(frame * (cur - 1) + frame / 8);
-      setBeforeFlag(frame * (cur - 1) - frame / 8);
+      setNextFlag(frame * (cur - 1) + frame / ratio);
+      setBeforeFlag(frame * (cur - 1) - frame / ratio);
       return cur - 1;
     }
     return cur;
