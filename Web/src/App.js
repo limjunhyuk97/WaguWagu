@@ -9,6 +9,7 @@ import {
   Admin,
   AdminTable,
   AdminStore,
+  Error,
 } from "@Pages";
 
 const App = () => {
@@ -22,7 +23,7 @@ const App = () => {
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/store" element={<AdminStore />} />
         <Route path="/admin/table" element={<AdminTable />} />\
-        <Route path="/" element={<Intro />} />
+        <Route path="/*" element={<Error />} />
       </Routes>
     </>
   );

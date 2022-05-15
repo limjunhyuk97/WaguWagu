@@ -1,4 +1,4 @@
-import { SwapButton } from "@Atoms/Buttons";
+import { SwapButton } from "@Atoms/Buttons/Intro";
 import { IntroBanner } from "@Constant/";
 import { SwapContainer } from "./styles";
 
