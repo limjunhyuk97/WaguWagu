@@ -1,7 +1,7 @@
 import IntroTemplate from "@Templates/Intro";
 import { IntroBanner } from "@Constant/";
-import { SwapContainer } from "./styles";
 import { Swap } from "@Organisms/Intro";
+import { SwapContainer } from "./styles";
 import { useState, useEffect } from "react";
 
 const Intro = () => {

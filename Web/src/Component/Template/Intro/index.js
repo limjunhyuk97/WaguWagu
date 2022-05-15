@@ -50,8 +50,8 @@ const IntroTemplate = ({ turn }) => {
         <LogoContainer>
           <Logo location={LOGO_IMG_URL} />
         </LogoContainer>
-        {RenderTexts(turn)}
         {turn === 4 ? RenderToHome() : null}
+        {RenderTexts(turn)}
       </Container>
     </>
   );
