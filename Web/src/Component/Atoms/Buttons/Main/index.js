@@ -1,5 +1,4 @@
-import EnrollButton from "./EnrollButton";
-import FindButton from "./FindButton";
-import LoginButton from "./LoginButton";
+import SubButton from "./SubButton";
+import MyButton from "./MyButton";
 
-export { EnrollButton, FindButton, LoginButton };
+export { SubButton, MyButton };

@@ -15,7 +15,7 @@ const Mixin = ({ weight, size, align, color }) => css`
 
 const LinkContainer = styled(Link)``;
 
-const LoginContainer = styled.div`
+const MyContainer = styled.div`
   ${Mixin({ weight: 800, size: 18, align: "center", color: DefaultColor })};
   width: 325px;
   height: 57px;
@@ -34,12 +34,8 @@ const LoginContainer = styled.div`
   }
 `;
 
-const EnrollContainer = styled.div`
+const SubButtonContainer = styled.div`
   ${Mixin({ weight: 800, size: 18, align: "center", color: "#000000" })};
 `;
 
-const FindContainer = styled.div`
-  ${Mixin({ weight: 800, size: 18, align: "center", color: "#000000" })};
-`;
-
-export { LoginContainer, EnrollContainer, FindContainer, LinkContainer };
+export { MyContainer, SubButtonContainer, LinkContainer };

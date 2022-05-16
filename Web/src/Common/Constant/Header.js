@@ -21,7 +21,7 @@ export const GNBInner = [
   },
 ];
 
-export const GMInner = [
+export const GMInnerBefore = [
   {
     menuName: "고객센터",
     linkTo: "/error",
@@ -33,6 +33,25 @@ export const GMInner = [
   {
     menuName: "로그인",
     linkTo: "/login",
+  },
+  {
+    menuName: "회원가입",
+    linkTo: "/enroll",
+  },
+];
+
+export const GMInnerAfter = [
+  {
+    menuName: "고객센터",
+    linkTo: "/error",
+  },
+  {
+    menuName: "공지사항",
+    linkTo: "/error",
+  },
+  {
+    menuName: "로그아웃",
+    linkTo: "/main",
   },
   {
     menuName: "회원가입",

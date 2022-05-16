@@ -39,26 +39,3 @@ export const IntroAppStoreDownloadText = "AppStore";
 export const IntroPlayStoreDownloadText = "PlayStore";
 
 export const IntroToHomeText = "사장님 페이지로";
-
-// Header
-
-export const GNBInner = [
-  {
-    text: "메뉴1",
-  },
-  {
-    text: "메뉴2",
-  },
-  {
-    text: "메뉴3",
-  },
-  {
-    text: "메뉴4",
-  },
-  {
-    text: "메뉴5",
-  },
-  {
-    text: "메뉴6",
-  },
-];

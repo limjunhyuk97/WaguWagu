@@ -1,12 +1,12 @@
 import HeaderContainer from "./style";
-import { Title, GNB, GMBefore } from "@Molecules/Header";
+import { Title, GNB, GM } from "@Molecules/Header";
 
-const Header = () => {
+const Header = ({ loginStatus }) => {
   return (
     <HeaderContainer>
       <Title />
       <GNB />
-      <GMBefore />
+      <GM loginStatus={loginStatus} />
     </HeaderContainer>
   );
 };

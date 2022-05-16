@@ -19,7 +19,7 @@ const GMContainer = styled.li`
   margin: 0px 15px;
   &::after {
     width: 1px;
-    height: 12px;
+    height: 16px;
     background-color: ${DefaultColor};
     content: "";
     position: absolute;
@@ -38,6 +38,9 @@ const GNBContainer = styled.div`
   margin: 0px 33px;
   @media screen and (max-width: 1330px) {
     margin: 0px 18px;
+  }
+  @media screen and (max-width: 1210px) {
+    display: none;
   }
 `;
 

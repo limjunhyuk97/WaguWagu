@@ -1,5 +1,5 @@
 import Title from "./Title";
 import GNB from "./GNB";
-import GMBefore from "./GMBefore";
+import GM from "./GM";
 
-export { Title, GNB, GMBefore };
+export { Title, GNB, GM };
