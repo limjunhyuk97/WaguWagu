@@ -2,9 +2,9 @@ import { LinkContainer, GMContainer } from "./styles";
 
 const GMButton = ({ menuName, linkTo }) => {
   return (
-    <LinkContainer to={linkTo}>
-      <GMContainer>{menuName}</GMContainer>
-    </LinkContainer>
+    <GMContainer>
+      <LinkContainer to={linkTo}>{menuName}</LinkContainer>
+    </GMContainer>
   );
 };
 

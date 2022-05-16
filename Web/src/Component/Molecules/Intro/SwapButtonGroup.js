@@ -1,5 +1,5 @@
 import { SwapButton } from "@Atoms/Buttons/Intro";
-import { IntroBanner } from "@Constant/";
+import { IntroBanner } from "@Constant/Intro";
 import { SwapContainer } from "./styles";
 
 const SwapButtonGroup = ({ turn }) => {

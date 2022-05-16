@@ -13,12 +13,32 @@ const Mixin = ({ weight, size, align, color }) => css`
   }
 `;
 
-const GMContainer = styled.div`
+const GMContainer = styled.li`
   ${Mixin({ weight: 800, size: 18, align: "center", color: "#000000" })};
+  list-style-type: none;
+  margin: 0px 15px;
+  &::after {
+    width: 1px;
+    height: 12px;
+    background-color: ${DefaultColor};
+    content: "";
+    position: absolute;
+    margin: auto;
+    margin-left: 15px;
+    top: 0;
+    bottom: 0;
+  }
+  &:last-child:after {
+    display: none;
+  }
 `;
 
 const GNBContainer = styled.div`
   ${Mixin({ weight: 800, size: 40, align: "center", color: "#000000" })};
+  margin: 0px 33px;
+  @media screen and (max-width: 1330px) {
+    margin: 0px 18px;
+  }
 `;
 
 const LinkContainer = styled(Link)``;
