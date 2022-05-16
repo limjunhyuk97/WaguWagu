@@ -1,6 +1,11 @@
 import MainTemplate from "@Templates/Main";
+import { useEffect } from "react";
 
 const Main = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <MainTemplate
