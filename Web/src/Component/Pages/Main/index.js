@@ -9,9 +9,9 @@ const Main = () => {
   return (
     <>
       <MainTemplate
-        loginStatus={false}
+        loginStatus={true}
         loginMessage={"로그인 해주세요!"}
-        greetingdMessage={"임준혁님 안녕하세요!"}
+        greetingsMessage={"임준혁님 안녕하세요!"}
       ></MainTemplate>
     </>
   );

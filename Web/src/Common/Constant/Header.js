@@ -54,7 +54,7 @@ export const GMInnerAfter = [
     linkTo: "/main",
   },
   {
-    menuName: "회원가입",
-    linkTo: "/enroll",
+    menuName: "마이페이지",
+    linkTo: "/admin",
   },
 ];
