@@ -19,8 +19,6 @@ const renderArticles = (num) => {
 };
 
 const MainTemplate = (props) => {
-  console.log(props);
-
   return (
     <>
       <Header loginStatus={props.loginStatus} />
