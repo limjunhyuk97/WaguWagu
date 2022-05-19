@@ -1,7 +1,19 @@
 import styled from "styled-components";
+import { css } from "styled-components";
+import { Link } from "react-router-dom";
 import { DefaultColor } from "@Style/";
 
-const BasicButton = styled.button`
+const Mixin = ({ weight, size, align, color }) => css`
+  font-weight: ${weight};
+  font-size: ${size}px;
+  text-align: ${align};
+  color: ${color};
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const BasicButton = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,4 +37,9 @@ const BasicButton = styled.button`
   }
 `;
 
-export { BasicButton };
+const SubButtonContainer = styled(Link)`
+  display: block;
+  ${Mixin({ weight: 800, size: 18, align: "center", color: "#000000" })};
+`;
+
+export { BasicButton, SubButtonContainer };

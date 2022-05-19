@@ -1,7 +1,11 @@
-import { BasicButton } from "./styles";
+import { BasicButton, SubButtonContainer } from "./styles";
 
-const Button = (props) => {
-  return <BasicButton {...props}></BasicButton>;
+const SubButton = ({ btnName, linkTo }) => {
+  return <SubButtonContainer to={linkTo}>{btnName}</SubButtonContainer>;
 };
 
-export { Button };
+const Button = (props) => {
+  return <BasicButton to={props["linkTo"]} {...props}></BasicButton>;
+};
+
+export { Button, SubButton };

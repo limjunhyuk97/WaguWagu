@@ -12,5 +12,6 @@ module.exports = override(
     "@Util": path.resolve(__dirname, "src/Common/Util/"),
     "@Style": path.resolve(__dirname, "src/Common/Style/"),
     "@Common": path.resolve(__dirname, "src/Common/"),
+    "@API": path.resolve(__dirname, "src/API/"),
   })
 );

@@ -17,7 +17,6 @@ const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
   clip: rect(0 0 0 0);
   clippath: inset(50%);
   height: 1px;
-  margin: 10px;
   overflow: hidden;
   padding: 0;
   white-space: nowrap;

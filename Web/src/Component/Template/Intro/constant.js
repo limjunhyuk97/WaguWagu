@@ -4,6 +4,12 @@ export const APPSTORE_LOGO = "/assets/pre-login/AppStore.png";
 
 export const PLAYSTORE_LOGO = "/assets/pre-login/PlayStore.svg";
 
+export const IntroAppStoreDownloadText = "AppStore";
+
+export const IntroPlayStoreDownloadText = "PlayStore";
+
+export const IntroToHomeText = "사장님 페이지로";
+
 export const IntroBanner = [
   4,
   {
@@ -37,9 +43,3 @@ export const IntroBanner = [
     ],
   },
 ];
-
-export const IntroAppStoreDownloadText = "AppStore";
-
-export const IntroPlayStoreDownloadText = "PlayStore";
-
-export const IntroToHomeText = "사장님 페이지로";

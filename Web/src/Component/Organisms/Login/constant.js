@@ -1,7 +1,7 @@
 export const IDBoxStyles = {
   width: "480px",
   height: "50px",
-  margin: "18px",
+  margin: "20px",
   padding: "0px 20px",
   placeholder: "아이디",
   placeholderColor: "#D0D2E0",
@@ -16,7 +16,7 @@ export const IDBoxStyles = {
 export const PWBoxStyles = {
   width: "480px",
   height: "50px",
-  margin: "18px",
+  margin: "20px",
   padding: "0px 20px",
   placeholder: "비밀번호",
   placeholderColor: "#D0D2E0",
@@ -28,7 +28,7 @@ export const PWBoxStyles = {
   borderRadius: "5px",
 };
 
-export const SubmitStyles = {
+export const SubmitBtnStyles = {
   width: "162px",
   height: "45px",
   margin: "10px",
@@ -44,4 +44,7 @@ export const SubmitStyles = {
   color: "#000000",
   backgroundColor: "#ffffff",
   transitionTime: "0.2s",
+  toLink: "/main",
 };
+
+export const FindBtnStyles = {};
