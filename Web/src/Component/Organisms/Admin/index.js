@@ -8,7 +8,7 @@ import {
   SubTitleContainer,
 } from "./styles";
 
-import { Vector1 } from "@Constant/Admin";
+import { Vector1 } from "./constant";
 
 const MenuItem = ({ mainTitle, subTitle, linkTo }) => {
   return (

@@ -6,7 +6,7 @@ import {
   SubContainer,
 } from "./styles";
 import { SubButton, MyButton } from "@Atoms/Buttons/Main";
-import { SubButtonsBefore, SubButtonsAfter } from "@Constant/Main";
+import { SubButtonsBefore, SubButtonsAfter } from "./constant";
 
 const renderSubButtons = (status) => {
   if (!status) {

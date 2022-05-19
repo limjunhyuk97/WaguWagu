@@ -1,8 +1,4 @@
-import { ERROR_PAGE } from "@Constant/Common";
-
-// Vector PNG
-
-export const Vector1 = `/assets/icon/AdminVector1.png`;
+import { ERROR_PAGE } from "@Common/";
 
 // Text
 

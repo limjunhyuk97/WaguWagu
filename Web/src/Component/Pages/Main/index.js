@@ -1,21 +1,20 @@
 import MainTemplate from "@Templates/Main";
+import { USER_KEY } from "@Common/";
 import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 
 const Main = () => {
   const [loginStatus, setLoginStatus] = useState(false);
-  const [cookie, setCookie, removeCookie] = useCookies(["user-id"]);
-
-  const makeCookie = () => {
-    setCookie("user-id", "1234", { path: "/", maxAge: 2 });
-  };
+  const [cookie] = useCookies(["user-id"]);
 
   useEffect(() => {
-    console.log(cookie);
-    makeCookie();
-    console.log(cookie);
     window.scrollTo(0, 0);
-  }, []);
+    if (cookie[USER_KEY]) {
+      setLoginStatus(true);
+    } else {
+      setLoginStatus(false);
+    }
+  }, [cookie]);
 
   return (
     <>

@@ -6,7 +6,7 @@ import {
   IntroAppStoreDownloadText,
   IntroPlayStoreDownloadText,
   IntroToHomeText,
-} from "@Constant/Intro";
+} from "./constant";
 import { Download, PromotionalText, ToHome } from "@Organisms/Intro";
 import {
   Container,

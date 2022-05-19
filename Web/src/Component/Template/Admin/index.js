@@ -8,7 +8,7 @@ import {
   StoreManagementTitle,
   AccountManagement,
   StoreManagement,
-} from "@Constant/Admin";
+} from "./constant";
 
 // mainTitle, subTitle, linkTo
 

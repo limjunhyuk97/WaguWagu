@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MAIN_HEIGHT } from "@Constant/Common";
+import { MAIN_HEIGHT } from "@Common";
 
 const InnerLRGAP = 24;
 const InnerTopGAP = 126;
