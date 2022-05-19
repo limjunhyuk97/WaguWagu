@@ -13,14 +13,14 @@ import { IDBoxStyles, PWBoxStyles, SubBtnStyles } from "./constant";
 
 const InputFrame = (props) => {
   return (
-    <FormContainer>
+    <FormContainer top={props.top} left={props.left}>
       <Input {...IDBoxStyles} onChange={props.handleIDChange}></Input>
       <Input {...PWBoxStyles} onChange={props.handlePWChange}></Input>
       <SubContainer>
         <CheckContainer>
           <CheckBox
-            checked={props.sustainLoginCheck}
-            onChange={props.handleCheckChange}
+            checked={props.sustainLogin}
+            onChange={props.handleSustainLogin}
           />
           <span
             style={{
@@ -40,4 +40,4 @@ const InputFrame = (props) => {
   );
 };
 
-export default InputFrame;
+export { InputFrame };

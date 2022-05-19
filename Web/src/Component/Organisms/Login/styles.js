@@ -4,7 +4,9 @@ const FormContainer = styled.div`
   width: 500px;
   height: 200px;
   margin: 20px;
-  position: relative;
+  position: absolute;
+  top: ${(props) => props.top};
+  left: ${(props) => props.left};
   display: flex;
   flex-direction: column;
   justify-content: space-around;

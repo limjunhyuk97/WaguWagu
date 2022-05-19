@@ -27,25 +27,6 @@ export const PWBoxStyles = {
   borderRadius: "5px",
 };
 
-export const SubmitBtnStyles = {
-  width: "162px",
-  height: "45px",
-  margin: "10px",
-  padding: "2px",
-  borderWidth: "1px",
-  borderStyle: "solid",
-  borderColor: "#D0D2E0",
-  borderRadius: "10px",
-  shadow: "0px 4px 4px",
-  shadowColor: "#D0D2E0",
-  fontSize: "25px",
-  fontWeight: "800",
-  color: "#000000",
-  backgroundColor: "#ffffff",
-  transitionTime: "0.2s",
-  toLink: "/main",
-};
-
 export const SubBtnStyles = {
   loginStatus: false,
   weight: "500",

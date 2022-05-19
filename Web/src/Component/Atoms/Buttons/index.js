@@ -9,7 +9,7 @@ const SubButton = ({ btnName, linkTo, color, weight, size }) => {
 };
 
 const Button = (props) => {
-  return <BasicButton to={props["linkTo"]} {...props}></BasicButton>;
+  return <BasicButton {...props}></BasicButton>;
 };
 
 export { Button, SubButton };

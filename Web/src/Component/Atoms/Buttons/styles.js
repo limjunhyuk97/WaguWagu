@@ -13,7 +13,7 @@ const Mixin = ({ weight, size, align, color }) => css`
   }
 `;
 
-const BasicButton = styled(Link)`
+const BasicButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
