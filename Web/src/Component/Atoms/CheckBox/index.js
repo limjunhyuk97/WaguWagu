@@ -8,7 +8,7 @@ import {
 const CheckBox = ({ checked, ...props }) => {
   return (
     <CheckboxContainer>
-      <HiddenCheckbox type={"checkbox"} checked={checked} {...props} />
+      <HiddenCheckbox checked={checked} {...props} />
       <StyledCheckbox checked={checked}>
         <Icon viewBox="0 0 24 24">
           <polyline points="19 7 10 17 5 12" />

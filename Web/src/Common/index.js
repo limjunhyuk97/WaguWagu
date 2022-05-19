@@ -1,4 +1,8 @@
+// IMG and VECTORS //
+
 export const LOGO_IMG_URL = `/assets/icon/waguwagu.png`;
+
+export const RIGHT_ARROW_VECTOR = `/assets/icon/rightarrow.png`;
 
 export const MAIN_HEIGHT = 2000;
 

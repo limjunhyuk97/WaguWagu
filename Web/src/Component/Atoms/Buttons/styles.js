@@ -39,7 +39,12 @@ const BasicButton = styled(Link)`
 
 const SubButtonContainer = styled(Link)`
   display: block;
-  ${Mixin({ weight: 800, size: 18, align: "center", color: "#000000" })};
+  ${Mixin({
+    weight: (props) => props.weight,
+    size: (props) => props.size,
+    align: "center",
+    color: (props) => props.color,
+  })};
 `;
 
 export { BasicButton, SubButtonContainer };

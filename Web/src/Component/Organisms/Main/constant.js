@@ -15,3 +15,9 @@ export const SubButtonsAfter = [
     linkTo: "/main",
   },
 ];
+
+export const BasicSubmenuStyles = {
+  weight: "800",
+  size: "18px",
+  color: "#000000",
+};

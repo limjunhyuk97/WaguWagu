@@ -1,7 +1,7 @@
 export const IDBoxStyles = {
   width: "480px",
   height: "50px",
-  margin: "20px",
+
   padding: "0px 20px",
   placeholder: "아이디",
   placeholderColor: "#D0D2E0",
@@ -16,7 +16,6 @@ export const IDBoxStyles = {
 export const PWBoxStyles = {
   width: "480px",
   height: "50px",
-  margin: "20px",
   padding: "0px 20px",
   placeholder: "비밀번호",
   placeholderColor: "#D0D2E0",
@@ -47,4 +46,9 @@ export const SubmitBtnStyles = {
   toLink: "/main",
 };
 
-export const FindBtnStyles = {};
+export const SubBtnStyles = {
+  loginStatus: false,
+  weight: "500",
+  size: "16px",
+  color: "#000000",
+};

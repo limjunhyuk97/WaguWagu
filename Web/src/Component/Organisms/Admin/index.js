@@ -8,7 +8,7 @@ import {
   SubTitleContainer,
 } from "./styles";
 
-import { Vector1 } from "./constant";
+import { RIGHT_ARROW_VECTOR } from "@Common/";
 
 const MenuItem = ({ mainTitle, subTitle, linkTo }) => {
   return (
@@ -17,7 +17,7 @@ const MenuItem = ({ mainTitle, subTitle, linkTo }) => {
         <MenuNameContainer>{mainTitle}</MenuNameContainer>
         <MenuInfoContainer>{subTitle}</MenuInfoContainer>
       </MenuInnerContainer>
-      <MenuIconContainer src={Vector1} />
+      <MenuIconContainer src={RIGHT_ARROW_VECTOR} />
     </MenuContainer>
   );
 };
