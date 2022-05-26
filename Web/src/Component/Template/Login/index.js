@@ -47,6 +47,10 @@ const LoginTemplate = () => {
       });
   };
 
+  const handleSubmenu = (menuName, linkTo) => {
+    navigate(linkTo);
+  };
+
   return (
     <FullFrame>
       <LoginContainer>
@@ -64,6 +68,7 @@ const LoginTemplate = () => {
           sustainLogin={sustainLogin}
           handleIDChange={handleIDChange}
           handlePWChange={handlePWChange}
+          onClick={handleSubmenu}
         />
         <ButtonContainer>
           <Button {...SubmitBtnStyles} onClick={handleLogin}>
