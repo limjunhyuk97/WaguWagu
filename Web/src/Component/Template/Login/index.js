@@ -9,7 +9,7 @@ import { InputFrame } from "@Organisms/Login";
 import { Button } from "@Atoms/Buttons/";
 import { LEFT_ARROW_VECTOR } from "@Common/";
 import { TITLE, INNER_LEFT, INNER_TOP, SubmitBtnStyles } from "./constant";
-import { postAccountInfo } from "@API/Account";
+import { postAccountInfo } from "@API/";
 
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
