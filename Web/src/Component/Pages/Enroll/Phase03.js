@@ -13,7 +13,6 @@ import {
 } from "./styles";
 
 import { LEFT_ARROW_VECTOR, PROCEDURE_VECTOR } from "@Common/";
-import { CATEGORIES } from "@Common/";
 
 const Phase03 = (props) => {
   return (
