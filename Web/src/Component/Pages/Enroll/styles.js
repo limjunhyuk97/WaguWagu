@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Select from "react-select";
 import { DefaultColor } from "@Style/";
 
 const FullFrame = styled.div`
@@ -72,6 +73,56 @@ const InputTitleContainer = styled.div`
   color: #404347;
 `;
 
+const InputSelectContainer = styled(Select)`
+  padding: 2px;
+  width: 480px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #d0d2e0;
+  border-radius: 5px;
+  & div {
+    border: none;
+    outline-width: 0px;
+    & #react-select-3-placeholder {
+      color: #d0d2e0;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    & div {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const InputAddressButton = styled.button`
+  width: 480px;
+  height: 50px;
+  padding-left: 13px;
+  border: 1px solid #d0d2e0;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: #d0d2e0;
+  text-align: start;
+  font-weight: 600;
+  font-size: 20px;
+  transition: 0.2s;
+  &:hover {
+    background-color: ${DefaultColor};
+    color: #ffffff;
+    cursor: pointer;
+    opacity: 0.5;
+  }
+`;
+
 const InputTextContainer = styled.input`
   margin: ${(props) => props.margin}px 0px;
   padding: 2px;
@@ -80,7 +131,7 @@ const InputTextContainer = styled.input`
   background: transparent;
   border: 1px solid
     ${(props) => {
-      if (props.phase === 1.5 || props.invalid) return "red";
+      if (props.phase === 1.5) return "red";
       else if (props.phase === 1.7) return "green";
       else return "#D0D2E0";
     }};
@@ -146,6 +197,8 @@ export {
   ProcedureText,
   InputContainer,
   InputTitleContainer,
+  InputSelectContainer,
+  InputAddressButton,
   InputTextContainer,
   SubmitButton,
   DupCheckButton,

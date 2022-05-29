@@ -34,51 +34,42 @@ const Phase01 = (props) => {
           {"회원가입 종료"}
         </ProcedureText>
       </ProcedureContainer>
-      <InputContainer margin={5}>
-        <InputTitleContainer margin={5}>{"이름"}</InputTitleContainer>
+      <InputContainer margin={15}>
+        <InputTitleContainer margin={6}>{"이름"}</InputTitleContainer>
         <InputTextContainer
-          placeholder="이름을 적어주세요"
+          placeholder="  이름을 적어주세요"
           id="name"
           onChange={props.onChange}
         ></InputTextContainer>
       </InputContainer>
-      <InputContainer margin={5}>
-        <InputTitleContainer margin={5}>{"이메일"}</InputTitleContainer>
-        <InputTextContainer
-          placeholder="형식에 맞게 적어주세요"
-          id="email"
-          onChange={props.onChange}
-        ></InputTextContainer>
-      </InputContainer>
-      <InputContainer margin={5}>
+      <InputContainer margin={15}>
         <InputTitleContainer margin={5}>{"전화번호"}</InputTitleContainer>
         <InputTextContainer
-          placeholder="- 를 빼고 적어주세요"
+          placeholder="  - 를 빼고 적어주세요"
           id="tell"
           onChange={props.onChange}
         ></InputTextContainer>
       </InputContainer>
-      <InputContainer margin={5}>
+      <InputContainer margin={15}>
         <div style={{ display: "flex", alignItems: "center" }}>
           <InputTitleContainer margin={5}>{"아이디"}</InputTitleContainer>
           <DupCheckButton onClick={props.idCheck}>{"중복확인"}</DupCheckButton>
         </div>
         <InputTextContainer
-          placeholder="영문 혹은 영문+숫자, 4~20자"
-          id="id"
+          placeholder=" 이메일 형식으로 적어주세요"
+          id="email"
           onChange={props.onChange}
-          phase={props.phase}
         ></InputTextContainer>
       </InputContainer>
-      <InputContainer margin={5}>
+      <InputContainer margin={15}>
         <InputTitleContainer margin={5}>{"비밀번호"}</InputTitleContainer>
         <InputTextContainer
-          placeholder="영어, 숫자, 특수문자 중 2가지 이상 10자 ~ 20자"
+          placeholder="  영어, 숫자, 특수문자 중 2가지 이상 10자 ~ 20자"
           id="pw"
           onChange={props.onChange}
         ></InputTextContainer>
       </InputContainer>
-      <SubmitButton style={{ marginTop: "10px" }} onClick={props.onClick}>
+      <SubmitButton style={{ marginTop: "15px" }} onClick={props.onClick}>
         {"다음 단계로"}
       </SubmitButton>
     </EnrollContainer>
