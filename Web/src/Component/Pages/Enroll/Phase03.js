@@ -44,7 +44,7 @@ const Phase03 = (props) => {
         ></InputTextContainer>
       </InputContainer>
       <InputContainer margin={20}>
-        <InputTitleContainer margin={6}>{"사업자 번호"}</InputTitleContainer>
+        <InputTitleContainer margin={6}>{"가게 설명"}</InputTitleContainer>
         <InputTextAreaContainer
           placeholder="    사장님의 소중한 가게에 대한 설명을 적어주세요!"
           id="description"
