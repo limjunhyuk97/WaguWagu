@@ -3,8 +3,8 @@ import { TitleContainer, SubTitleText, TitleText } from "./styles";
 const Title = () => {
   return (
     <TitleContainer>
-      <SubTitleText>{"매장 관리"}</SubTitleText>
-      <TitleText>{"매장 정보 관리"}</TitleText>
+      <SubTitleText>{"예약 관리"}</SubTitleText>
+      <TitleText>{"예약 정보 관리"}</TitleText>
     </TitleContainer>
   );
 };

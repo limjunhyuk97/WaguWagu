@@ -16,6 +16,8 @@ export const MR_CHEF_IMG = `/assets/icon/mrchef.png`;
 
 export const FOOD_IMG = `/assets/icon/food.png`;
 
+export const TABLE_IMG = `/assets/icon/table.png`;
+
 // Default Settings //
 
 export const MAIN_HEIGHT = 2000;
