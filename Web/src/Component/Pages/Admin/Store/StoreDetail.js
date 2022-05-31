@@ -8,7 +8,7 @@ import {
   Btn,
 } from "./styles";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 const convertMinute = (minute) => {
   let hour = parseInt(minute / 60);
@@ -17,31 +17,14 @@ const convertMinute = (minute) => {
 };
 
 const StoreDetail = (props) => {
-  const [atm, setAtm] = useState(0);
-  const [hour, setHour] = useState(0);
-  const [minute, setMinute] = useState(0);
-
-  useEffect(() => {
-    setAtm(props.atm);
-    setHour(convertMinute(atm).hour);
-    setMinute(convertMinute(atm).min);
-    console.log(props.atm);
-  }, []);
+  useEffect(() => {}, [props.atm]);
 
   const handleAdder = () => {
-    setAtm((prev) => prev + 10);
-    setHour(convertMinute(atm).hour);
-    setMinute(convertMinute(atm).min);
-    props.handleAtmChange(atm);
-    console.log(props.atm);
+    props.handleAtmChange(props.atm + 10);
   };
 
   const handleDeduction = () => {
-    setAtm((prev) => prev - 10);
-    setHour(convertMinute(atm).hour);
-    setMinute(convertMinute(atm).min);
-    props.handleAtmChange(atm);
-    console.log(props.atm);
+    props.handleAtmChange(props.atm - 10);
   };
 
   return (
@@ -86,8 +69,14 @@ const StoreDetail = (props) => {
         </DescriptionTitle>
         <TimeControl>
           <InnerButton onClick={handleDeduction}>- 10</InnerButton>
-          <InnerText>{`${hour < 10 ? `0${hour}` : `${hour}`} : ${
-            minute / 10 ? `${minute}` : `0${minute}`
+          <InnerText>{`${
+            convertMinute(props.atm).hour < 10
+              ? `0${convertMinute(props.atm).hour}`
+              : `${convertMinute(props.atm).hour}`
+          } : ${
+            convertMinute(props.atm).min < 10
+              ? `0${convertMinute(props.atm).min}`
+              : `${convertMinute(props.atm).min}`
           }`}</InnerText>
           <InnerButton onClick={handleAdder}>+ 10</InnerButton>
         </TimeControl>

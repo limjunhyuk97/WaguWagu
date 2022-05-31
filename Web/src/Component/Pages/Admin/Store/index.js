@@ -69,6 +69,7 @@ const AdminTable = () => {
 
   const handleClick = async (e) => {
     const userID = getCookie(USER_KEY);
+    console.log(data);
     await putRestaurantInfo({
       id: userID,
       data: {
@@ -104,6 +105,7 @@ const AdminTable = () => {
     const userID = getCookie(USER_KEY);
     if (newName === "") {
       alert("메뉴를 입력하세요!");
+
       return;
     }
     await postMenuInfo({
@@ -112,30 +114,37 @@ const AdminTable = () => {
     })
       .then((res) => {
         alert("성공적으로 등록되었습니다");
-        setData((cur) => {
-          cur.menu.push({ name: newName, price: newCost });
+        setData((prevState) => {
+          const newMenu = prevState.menu;
+          newMenu.push({ name: newName, price: newCost });
+          return { ...prevState, menu: newMenu };
         });
+        setRender((cur) => !cur);
       })
       .catch((err) => {
         console.error(err);
       });
   };
 
-  // ============= useEffect ============= //
+  // Change Item data
+  const handleChangeItem =
+    // Delete Item
 
-  useEffect(() => {
-    scrollTop();
-    const status = getCookie(USER_KEY);
-    if (status) setLoginStatus(true);
-    else setLoginStatus(false);
-    getRestaurantInfo(status).then((res) => {
-      setData(res.data);
-    });
-  }, []);
+    // ============= useEffect ============= //
+
+    // 초기 랜더링 위한 useEffect
+    useEffect(() => {
+      scrollTop();
+      const status = getCookie(USER_KEY);
+      if (status) setLoginStatus(true);
+      else setLoginStatus(false);
+      getRestaurantInfo(status).then((res) => {
+        setData(res.data);
+      });
+    }, []);
 
   // render가 변경되면 useEffect 호출해서 맨 위로 끌어올리고 data 다시 받아오셈
   useEffect(() => {
-    scrollTop();
     const status = getCookie(USER_KEY);
     getRestaurantInfo(status).then((res) => {
       setData(res.data);
