@@ -16,7 +16,7 @@ import { scrollTop } from "@Util/scrollTop";
 
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getTableInfo, postTableInfo } from "@API/";
+import { getTableInfo, postTableInfo, deleteTableInfo } from "@API/";
 
 const AdminTable = () => {
   // login
@@ -66,10 +66,10 @@ const AdminTable = () => {
           maxCustomerCount: e.target.value,
         }));
         break;
-      case "new-minOrderAmout":
+      case "new-minOrderAmount":
         setNewTable((prev) => ({
           ...prev,
-          minOrderAmout: e.target.value,
+          minOrderAmount: e.target.value,
         }));
         break;
       default:
@@ -90,8 +90,27 @@ const AdminTable = () => {
   };
 
   // Adjust Table
+  const handleModify = (e) => {};
 
   // Enable Table
+  const handleSleepAndWake = () => {};
+
+  // Delete Table
+  const handleDelete = async (e) => {
+    const userID = getCookie(USER_KEY);
+    console.log(e.target.dataset.tableid);
+    await deleteTableInfo({
+      userID: userID,
+      tableID: e.target.dataset.tableid,
+    })
+      .then((res) => {
+        alert("테이블 제거가 완료되었습니다!");
+        setRender((cur) => !cur);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   // UseEffect
   useEffect(() => {
@@ -103,7 +122,6 @@ const AdminTable = () => {
       setLoginStatus(false);
     }
     getTableInfo(status).then((res) => {
-      console.log(res.data);
       setData(res.data);
     });
   }, []);
@@ -127,7 +145,12 @@ const AdminTable = () => {
               handleTableInput={handleTableInput}
               handleTableAdd={handleTableAdd}
             />
-            <TableDetail tables={data.tables} />
+            <TableDetail
+              tables={data.tables}
+              modify={handleModify}
+              sleepAndWake={handleSleepAndWake}
+              delete={handleDelete}
+            />
           </LeftContainer>
           <RightContainer style={{ marginLeft: "20px" }}></RightContainer>
         </FlexContainer>

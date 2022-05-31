@@ -94,7 +94,7 @@ const TitleText = styled.h1`
 
 // Table
 const TableContainer = styled.div`
-  width: 610px;
+  width: 680px;
   height: 300px;
   display: flex;
   align-items: center;
@@ -102,7 +102,10 @@ const TableContainer = styled.div`
   border-bottom: 2px solid #fdb165;
 `;
 
-const TableDataContainer = styled.div``;
+const TableDataContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const TableImg = styled.img`
   width: 314px;
@@ -111,9 +114,9 @@ const TableImg = styled.img`
 `;
 
 const TableData = styled.input`
-  width: 150px;
+  width: 250px;
   height: 40px;
-  margin: 5px;
+  margin: 5px 20px 5px 0px;
   border: 1px solid #d0d2e0;
   border-radius: 5px;
   color: #000000;
@@ -133,7 +136,11 @@ const TableData = styled.input`
   }
 `;
 
-const TableDataLabel = styled.label``;
+const TableDataLabel = styled.label`
+  font-size: 16px;
+  font-weight: 700;
+  color: ${DefaultColor};
+`;
 
 export {
   Btn,

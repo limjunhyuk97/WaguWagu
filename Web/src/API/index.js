@@ -8,6 +8,7 @@ import {
   PUT_MENU_INFO,
   DEL_MENU_INFO,
   GET_TABLE_INFO,
+  DEL_TABLE_INFO,
 } from "@Common/API";
 import axios from "axios";
 import { POST_TABLE_INFO } from "../Common/API";
@@ -36,9 +37,13 @@ export const getRestaurantInfo = async (params) => {
 };
 
 export const putRestaurantInfo = async (params) => {
-  return await axios.put(PUT_RESTAURANT_INFO(), JSON.stringify(params.data), {
-    headers: { "Content-Type": `application/json` },
-  });
+  return await axios.put(
+    PUT_RESTAURANT_INFO(params),
+    JSON.stringify(params.data),
+    {
+      headers: { "Content-Type": `application/json` },
+    }
+  );
 };
 
 export const postMenuInfo = async (params) => {
@@ -70,4 +75,8 @@ export const postTableInfo = async (params) => {
       headers: { "Content-Type": `application/json` },
     }
   );
+};
+
+export const deleteTableInfo = async (params) => {
+  return await axios.delete(DEL_TABLE_INFO(params));
 };

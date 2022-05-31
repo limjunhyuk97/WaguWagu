@@ -76,11 +76,11 @@ const AdminTable = () => {
     const userID = getCookie(USER_KEY);
     console.log(data);
     await putRestaurantInfo({
-      id: userID,
+      userID: userID,
       data: {
         address: data.address,
         addressDetail: data.addressDetail,
-        arriveTimeoutMinutes: data.arriveTimeoutMinutes + 10,
+        arriveTimeoutMinutes: data.arriveTimeoutMinutes,
         category: data.category,
         description: data.description,
         name: data.name,
@@ -114,7 +114,7 @@ const AdminTable = () => {
       return;
     }
     await postMenuInfo({
-      id: userID,
+      userID: userID,
       data: { name: newName, price: newCost },
     })
       .then((res) => {

@@ -25,29 +25,29 @@ const TableAdd = (props) => {
             id="new-name"
             placeholder={" 테이블명 입력"}
             onChange={props.handleTableInput}
-            style={{ width: "250px" }}
+            style={{ width: "350px" }}
           ></TableData>
           <TableData
             id="new-description"
             placeholder={" 테이블 설명 입력"}
             onChange={props.handleTableInput}
-            style={{ width: "250px" }}
+            style={{ width: "350px" }}
           ></TableData>
           <TableData
             id="new-maxCustomerCount"
             placeholder={" 제한 인원수 입력"}
             onChange={props.handleTableInput}
-            style={{ width: "250px" }}
+            style={{ width: "350px" }}
           ></TableData>
           <TableData
             id="new-minOrderAmount"
             placeholder={" 최소주문금액 입력"}
             onChange={props.handleTableInput}
-            style={{ width: "250px" }}
+            style={{ width: "350px" }}
           ></TableData>
           <Btn
             style={{
-              margin: "10px 0px 0px 150px",
+              margin: "10px 0px 0px 230px",
             }}
             onClick={props.handleTableAdd}
           >

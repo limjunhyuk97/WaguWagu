@@ -12,6 +12,8 @@ import {
 import { TABLE_IMG } from "@Common";
 import { useEffect } from "react";
 
+const styles = { backgroundColor: "#ffffff", height: "36px", textSize: "24px" };
+
 const TableDetail = (props) => {
   const renderItems = () => {
     // props.menu가 내려왔을 때 rendering을 시켜주어야 함
@@ -22,31 +24,45 @@ const TableDetail = (props) => {
           <TableContainer style={{ margin: "1px 0px -3px 0px" }}>
             <TableImg src={TABLE_IMG} />
             <TableDataContainer>
-              <TableData
-                defaultValue={el.name}
-                style={{ backgroundColor: "#ffffff" }}
-              ></TableData>
-              <TableDataLabel>테이블 명</TableDataLabel>
-              <TableData
-                defaultValue={el.description}
-                style={{ backgroundColor: "#ffffff" }}
-              ></TableData>
-              <TableDataLabel>설명</TableDataLabel>
-              <TableData
-                defaultValue={el.maxCustomerCount}
-                style={{ backgroundColor: "#ffffff" }}
-              ></TableData>
-              <TableDataLabel>인원 제한</TableDataLabel>
-              <TableData
-                defaultValue={el.minOrderAmount}
-                style={{ backgroundColor: "#ffffff" }}
-              ></TableData>
-              <TableDataLabel>최소주문금액</TableDataLabel>
-              <div style={{ display: "flex", justifyContent: "flex-end" }}>
+              <div>
+                <TableData
+                  defaultValue={el.name}
+                  style={{ ...styles }}
+                ></TableData>
+                <TableDataLabel>테이블 명</TableDataLabel>
+              </div>
+              <div>
+                <TableData
+                  defaultValue={el.description}
+                  style={{ ...styles }}
+                ></TableData>
+                <TableDataLabel>설명</TableDataLabel>
+              </div>
+              <div>
+                <TableData
+                  defaultValue={el.maxCustomerCount}
+                  style={{ ...styles }}
+                ></TableData>
+                <TableDataLabel>인원 제한</TableDataLabel>
+              </div>
+              <div>
+                <TableData
+                  defaultValue={el.minOrderAmount}
+                  style={{ ...styles }}
+                ></TableData>
+                <TableDataLabel>최소주문금액</TableDataLabel>
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  marginTop: "10px",
+                }}
+              >
                 <Btn
                   style={{
                     width: "80px",
-                    margin: "10px",
                   }}
                   onClick={props.modify}
                   data-tableid={el.id}
@@ -56,12 +72,22 @@ const TableDetail = (props) => {
                 <Btn
                   style={{
                     width: "100px",
-                    margin: "10px 30px 10px 10px",
+                    marginLeft: "10px",
                   }}
                   onClick={props.sleep}
                   data-tableid={el.id}
                 >
                   비활성
+                </Btn>
+                <Btn
+                  style={{
+                    width: "80px",
+                    marginLeft: "10px",
+                  }}
+                  onClick={props.delete}
+                  data-tableid={el.id}
+                >
+                  삭제
                 </Btn>
               </div>
             </TableDataContainer>
