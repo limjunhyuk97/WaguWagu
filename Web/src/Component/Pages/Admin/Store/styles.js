@@ -222,7 +222,10 @@ const MenuData = styled.input`
   font-size: 24px;
 `;
 
-const MenuBtns = styled.div``;
+const MenuBtns = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 export {
   Btn,

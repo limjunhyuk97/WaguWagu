@@ -17,23 +17,21 @@ import { scrollTop } from "@Util/scrollTop";
 
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getRestaurantInfo, putRestaurantInfo } from "@API";
+import { getRestaurantInfo, putRestaurantInfo, postMenuInfo } from "@API";
 
 const AdminTable = () => {
   const navigate = useNavigate();
 
   // states
-
   const [loginStatus, setLoginStatus] = useState(false);
+  const [render, setRender] = useState(false);
 
   // store data
   const [data, setData] = useState({});
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [atm, setAtm] = useState(0);
 
-  // menu data
-  const [menu, setMenu] = useState([]);
+  // new menu data
+  const [newName, setNewName] = useState("");
+  const [newCost, setNewCost] = useState(0);
 
   // ============= left page ============= //
 
@@ -47,59 +45,36 @@ const AdminTable = () => {
     navigate(linkTo);
   };
 
-  // handle initial asynchronous get
-  const handleMenuFetch = async (params) => {
-    if (params) setLoginStatus(true);
-    else setLoginStatus(false);
-    await getRestaurantInfo(params).then((res) => {
-      setData(res.data);
-      setName(res.data.name);
-      setDescription(res.data.description);
-      setAtm(res.data.arriveTimeoutMinutes);
-      setMenu(res.data.menu);
-    });
-  };
-
   // handle Store Data
   const handleNameChange = (e) => {
-    setName(e.target.value);
+    setData((prevState) => ({
+      ...prevState,
+      name: e.target.value,
+    }));
   };
 
   const handleDescriptionChange = (e) => {
-    setDescription(e.target.value);
+    setData((prevState) => ({
+      ...prevState,
+      description: e.target.value,
+    }));
   };
 
   const handleAtmChange = (val) => {
-    setAtm(val);
-    console.log(atm);
+    setData((prevState) => ({
+      ...prevState,
+      arriveTimeoutMinutes: val,
+    }));
   };
 
-  const store_obj = [
-    { id: "name", obj: setName, val: name },
-    { id: "description", obj: setDescription, val: description },
-    { id: "arriveTimeoutMinutes", obj: setAtm, val: atm },
-  ];
-
   const handleClick = async (e) => {
-    const objMatches = store_obj.map((el) => {
-      return {
-        el,
-        isMatch: el.id === e.target.id,
-      };
-    });
-
     const userID = getCookie(USER_KEY);
-    const matchingSet = objMatches.find((el) => el.isMatch);
-    setData((data) => {
-      data[matchingSet.el.id] = matchingSet.el.val;
-    });
-    console.log(matchingSet);
     await putRestaurantInfo({
       id: userID,
       data: {
         address: data.address,
         addressDetail: data.addressDetail,
-        arriveTimeoutMinutes: data.arriveTimeoutMinutes,
+        arriveTimeoutMinutes: data.arriveTimeoutMinutes + 10,
         category: data.category,
         description: data.description,
         name: data.name,
@@ -108,6 +83,7 @@ const AdminTable = () => {
     })
       .then((res) => {
         alert("식당 정보가 변경되었습니다!");
+        setRender((cur) => !cur);
       })
       .catch((err) => {
         console.error(err);
@@ -115,14 +91,56 @@ const AdminTable = () => {
   };
 
   // ============= right page ============= //
+  // Add Item
+  const handleNewNameChange = (e) => {
+    setNewName(e.target.value);
+  };
+
+  const handleNewCostChange = (e) => {
+    setNewCost(e.target.value);
+  };
+
+  const handleAddItem = async (e) => {
+    const userID = getCookie(USER_KEY);
+    if (newName === "") {
+      alert("메뉴를 입력하세요!");
+      return;
+    }
+    await postMenuInfo({
+      id: userID,
+      data: { name: newName, price: newCost },
+    })
+      .then((res) => {
+        alert("성공적으로 등록되었습니다");
+        setData((cur) => {
+          cur.menu.push({ name: newName, price: newCost });
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   // ============= useEffect ============= //
 
   useEffect(() => {
-    const status = getCookie(USER_KEY);
     scrollTop();
-    handleMenuFetch(status);
+    const status = getCookie(USER_KEY);
+    if (status) setLoginStatus(true);
+    else setLoginStatus(false);
+    getRestaurantInfo(status).then((res) => {
+      setData(res.data);
+    });
   }, []);
+
+  // render가 변경되면 useEffect 호출해서 맨 위로 끌어올리고 data 다시 받아오셈
+  useEffect(() => {
+    scrollTop();
+    const status = getCookie(USER_KEY);
+    getRestaurantInfo(status).then((res) => {
+      setData(res.data);
+    });
+  }, [render]);
 
   return (
     <>
@@ -133,9 +151,9 @@ const AdminTable = () => {
           <LeftContainer style={{ marginRight: "20px" }}>
             <Img />
             <Store
-              name={name}
-              atm={atm}
-              description={description}
+              name={data.name}
+              atm={data.arriveTimeoutMinutes}
+              description={data.description}
               handleNameChange={handleNameChange}
               handleAtmChange={handleAtmChange}
               handleDescriptionChange={handleDescriptionChange}
@@ -143,8 +161,12 @@ const AdminTable = () => {
             />
           </LeftContainer>
           <RightContainer style={{ marginLeft: "20px" }}>
-            <MenuAdd />
-            <MenuDetail />
+            <MenuAdd
+              handleNewNameChange={handleNewNameChange}
+              handleNewCostChange={handleNewCostChange}
+              handleAddItem={handleAddItem}
+            />
+            <MenuDetail menu={data.menu} />
           </RightContainer>
         </FlexContainer>
       </StoreContainer>

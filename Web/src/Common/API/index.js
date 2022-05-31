@@ -12,4 +12,6 @@ export const POST_RESTAURANT_INFO = `https://diunbu3dmy.ap-northeast-1.awsapprun
 
 export const GET_RESTAURANT_INFO = `https://diunbu3dmy.ap-northeast-1.awsapprunner.com/api/v1/restaurants`;
 
-export const PUT_RESTAURANT_INFO = `https://diunbu3dmy.ap-northeast-1.awsapprunner.com/api/v1/restaurants`;
+export const PUT_RESTAURANT_INFO = `https://diunbu3dmy.ap-northeast-1.awsapprunner.com:443/api/v1/restaurants`;
+
+export const POST_MENU_INFO = `https://diunbu3dmy.ap-northeast-1.awsapprunner.com:443/api/v1/restaurant`;

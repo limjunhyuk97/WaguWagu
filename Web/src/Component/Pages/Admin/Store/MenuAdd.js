@@ -12,7 +12,7 @@ import {
 
 import { EDIT_VECTOR, FOOD_IMG } from "@Common";
 
-const MenuAdd = () => {
+const MenuAdd = (props) => {
   return (
     <div>
       <EditContainer>
@@ -25,12 +25,21 @@ const MenuAdd = () => {
           <MenuData
             placeholder={" 메뉴명 입력"}
             id="add--menu--name"
+            onChange={props.handleNewNameChange}
           ></MenuData>
-          <MenuData placeholder={" 가격 입력"} id="add--menu--price"></MenuData>
+          <MenuData
+            placeholder={" 가격 입력"}
+            id="add--menu--price"
+            onChange={props.handleNewCostChange}
+          ></MenuData>
         </MenuDataContainer>
         <MenuBtns>
-          <Btn style={{ width: "160px", margin: "8px" }}>사진 업로드</Btn>
-          <Btn style={{ width: "160px", margin: "8px" }}>추가</Btn>
+          <Btn
+            style={{ width: "160px", margin: "8px" }}
+            onClick={props.handleAddItem}
+          >
+            추가
+          </Btn>
         </MenuBtns>
       </MenuContainer>
     </div>

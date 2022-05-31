@@ -4,8 +4,11 @@ import {
   POST_RESTAURANT_INFO,
   GET_RESTAURANT_INFO,
   PUT_RESTAURANT_INFO,
+  POST_MENU_INFO,
 } from "@Common/API";
 import axios from "axios";
+
+import { USER_KEY, getCookie } from "@Common/Util/cookie";
 
 // login
 export const postAccountInfo = async (params) => {
@@ -31,9 +34,18 @@ export const getRestaurantInfo = async (params) => {
 };
 
 export const putRestaurantInfo = async (params) => {
-  console.log(params.id);
   return await axios.put(
     `${PUT_RESTAURANT_INFO}/${params.id}`,
+    JSON.stringify(params.data),
+    {
+      headers: { "Content-Type": `application/json` },
+    }
+  );
+};
+
+export const postMenuInfo = async (params) => {
+  return await axios.post(
+    `${POST_MENU_INFO}/${params.id}/menu`,
     JSON.stringify(params.data),
     {
       headers: { "Content-Type": `application/json` },

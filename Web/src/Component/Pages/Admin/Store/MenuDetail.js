@@ -11,7 +11,25 @@ import {
 
 import { FOOD_IMG } from "@Common";
 
-const MenuDetail = () => {
+const MenuDetail = (props) => {
+  // const renderItems = () => {
+  //   return props.menu.map((el) => {
+  //     return (
+  //       <MenuContainer style={{ margin: "1px 0px -3px 0px" }}>
+  //         <MenuImg src={FOOD_IMG} />
+  //         <MenuDataContainer>
+  //           <MenuData value={el.name} disabled></MenuData>
+  //           <MenuData value={`${el.price} 원`} disabled></MenuData>
+  //         </MenuDataContainer>
+  //         <MenuBtns>
+  //           <Btn style={{ width: "160px", margin: "8px" }}>제거</Btn>
+  //           <Btn style={{ width: "160px", margin: "8px" }}>수정</Btn>
+  //         </MenuBtns>
+  //       </MenuContainer>
+  //     );
+  //   });
+  // };
+
   return (
     <>
       <div style={{ marginTop: "30px" }}>
@@ -21,78 +39,7 @@ const MenuDetail = () => {
       </div>
 
       <div style={{ height: "1000px", overflow: "scroll" }}>
-        <MenuContainer style={{ borderBottom: "none" }}>
-          <MenuImg src={FOOD_IMG} />
-          <MenuDataContainer>
-            <MenuData placeholder={" 메뉴명 입력"}></MenuData>
-            <MenuData placeholder={" 가격 입력"}></MenuData>
-          </MenuDataContainer>
-          <MenuBtns>
-            <Btn style={{ width: "160px", margin: "8px" }}>사진 업로드</Btn>
-            <Btn style={{ width: "160px", margin: "8px" }}>추가</Btn>
-            <Btn style={{ width: "160px", margin: "8px" }}>삭제</Btn>
-          </MenuBtns>
-        </MenuContainer>
-        <MenuContainer style={{ borderBottom: "none" }}>
-          <MenuImg src={FOOD_IMG} />
-          <MenuDataContainer>
-            <MenuData placeholder={" 메뉴명 입력"}></MenuData>
-            <MenuData placeholder={" 가격 입력"}></MenuData>
-          </MenuDataContainer>
-          <MenuBtns>
-            <Btn style={{ width: "160px", margin: "8px" }}>사진 업로드</Btn>
-            <Btn style={{ width: "160px", margin: "8px" }}>추가</Btn>
-            <Btn style={{ width: "160px", margin: "8px" }}>삭제</Btn>
-          </MenuBtns>
-        </MenuContainer>
-        <MenuContainer style={{ borderBottom: "none" }}>
-          <MenuImg src={FOOD_IMG} />
-          <MenuDataContainer>
-            <MenuData placeholder={" 메뉴명 입력"}></MenuData>
-            <MenuData placeholder={" 가격 입력"}></MenuData>
-          </MenuDataContainer>
-          <MenuBtns>
-            <Btn style={{ width: "160px", margin: "8px" }}>사진 업로드</Btn>
-            <Btn style={{ width: "160px", margin: "8px" }}>추가</Btn>
-            <Btn style={{ width: "160px", margin: "8px" }}>삭제</Btn>
-          </MenuBtns>
-        </MenuContainer>
-        <MenuContainer style={{ borderBottom: "none" }}>
-          <MenuImg src={FOOD_IMG} />
-          <MenuDataContainer>
-            <MenuData placeholder={" 메뉴명 입력"}></MenuData>
-            <MenuData placeholder={" 가격 입력"}></MenuData>
-          </MenuDataContainer>
-          <MenuBtns>
-            <Btn style={{ width: "160px", margin: "8px" }}>사진 업로드</Btn>
-            <Btn style={{ width: "160px", margin: "8px" }}>추가</Btn>
-            <Btn style={{ width: "160px", margin: "8px" }}>삭제</Btn>
-          </MenuBtns>
-        </MenuContainer>
-        <MenuContainer style={{ borderBottom: "none" }}>
-          <MenuImg src={FOOD_IMG} />
-          <MenuDataContainer>
-            <MenuData placeholder={" 메뉴명 입력"}></MenuData>
-            <MenuData placeholder={" 가격 입력"}></MenuData>
-          </MenuDataContainer>
-          <MenuBtns>
-            <Btn style={{ width: "160px", margin: "8px" }}>사진 업로드</Btn>
-            <Btn style={{ width: "160px", margin: "8px" }}>추가</Btn>
-            <Btn style={{ width: "160px", margin: "8px" }}>삭제</Btn>
-          </MenuBtns>
-        </MenuContainer>
-        <MenuContainer style={{ borderBottom: "none" }}>
-          <MenuImg src={FOOD_IMG} />
-          <MenuDataContainer>
-            <MenuData placeholder={" 메뉴명 입력"}></MenuData>
-            <MenuData placeholder={" 가격 입력"}></MenuData>
-          </MenuDataContainer>
-          <MenuBtns>
-            <Btn style={{ width: "160px", margin: "8px" }}>사진 업로드</Btn>
-            <Btn style={{ width: "160px", margin: "8px" }}>추가</Btn>
-            <Btn style={{ width: "160px", margin: "8px" }}>삭제</Btn>
-          </MenuBtns>
-        </MenuContainer>
+        {/* {renderItems()} */}
       </div>
     </>
   );

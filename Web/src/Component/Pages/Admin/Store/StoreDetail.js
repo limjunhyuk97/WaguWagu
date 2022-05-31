@@ -16,10 +16,6 @@ const convertMinute = (minute) => {
   return { hour: hour, min: min };
 };
 
-// props.handleAtmChange
-// props.handleNameChange
-// props.handleDescriptionChange
-// props.handlePost
 const StoreDetail = (props) => {
   const [atm, setAtm] = useState(0);
   const [hour, setHour] = useState(0);
@@ -29,20 +25,23 @@ const StoreDetail = (props) => {
     setAtm(props.atm);
     setHour(convertMinute(atm).hour);
     setMinute(convertMinute(atm).min);
+    console.log(props.atm);
   }, []);
 
   const handleAdder = () => {
-    setAtm((cur) => cur + 10);
+    setAtm((prev) => prev + 10);
     setHour(convertMinute(atm).hour);
     setMinute(convertMinute(atm).min);
     props.handleAtmChange(atm);
+    console.log(props.atm);
   };
 
   const handleDeduction = () => {
-    setAtm((cur) => cur - 10);
+    setAtm((prev) => prev - 10);
     setHour(convertMinute(atm).hour);
     setMinute(convertMinute(atm).min);
     props.handleAtmChange(atm);
+    console.log(props.atm);
   };
 
   return (
@@ -51,7 +50,10 @@ const StoreDetail = (props) => {
         <DescriptionTitle style={{ marginBottom: "20px", marginTop: "20px" }}>
           매장명
         </DescriptionTitle>
-        <DescriptionText onChange={props.handleNameChange} value={props.name} />
+        <DescriptionText
+          onChange={props.handleNameChange}
+          value={props.name || ""}
+        />
         <Btn
           id="name"
           style={{ marginLeft: "350px", marginTop: "20px" }}
@@ -67,7 +69,7 @@ const StoreDetail = (props) => {
         </DescriptionTitle>
         <DescriptionTextArea
           onChange={props.handleDescriptionChange}
-          defaultValue={props.description}
+          defaultValue={props.description || ""}
         ></DescriptionTextArea>
         <Btn
           id="description"
