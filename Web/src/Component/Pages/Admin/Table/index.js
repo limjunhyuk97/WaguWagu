@@ -44,12 +44,12 @@ const AdminTable = () => {
   const [render, setRender] = useState(true);
 
   const handleLoginout = (menuName, linkTo) => {
+    navigate(linkTo);
     if (menuName === "로그아웃") {
-      setLoginStatus(false);
       removeCookie(USER_KEY);
       removeCookie(USER_NAME);
+      setLoginStatus(false);
     }
-    navigate(linkTo);
   };
 
   // TableList

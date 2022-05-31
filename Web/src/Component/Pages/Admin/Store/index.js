@@ -42,12 +42,12 @@ const AdminTable = () => {
 
   // handle log-in/out
   const handleLoginout = (menuName, linkTo) => {
+    navigate(linkTo);
     if (menuName === "로그아웃") {
-      setLoginStatus(false);
       removeCookie(USER_KEY);
       removeCookie(USER_NAME);
+      setLoginStatus(false);
     }
-    navigate(linkTo);
   };
 
   // handle Store Data
