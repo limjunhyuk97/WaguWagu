@@ -40,12 +40,14 @@ const FlexContainer = styled.div`
 `;
 
 const LeftContainer = styled.div`
+  margin-right: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 const RightContainer = styled.div`
+  margin-left: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -123,7 +125,7 @@ const TableData = styled.input`
   font-weight: 700;
   font-size: 20px;
   ::placeholder {
-    color: #d0d2e0;
+    color: #000000;
     font-weight: 600;
     font-size: 20px;
   }
@@ -140,6 +142,56 @@ const TableDataLabel = styled.label`
   font-size: 16px;
   font-weight: 700;
   color: ${DefaultColor};
+`;
+
+const TableEnabled = styled.div`
+  margin: 5px 0px;
+  text-align: right;
+  font-weight: 700;
+  font-size: 25px;
+  color: ${(props) => (props.enabled ? "green" : "#C4C4C4")};
+`;
+
+// Request
+const RequestContainer = styled.div`
+  width: 630px;
+  height: 160px;
+  margin: 1px 0px -3px 0px;
+  border-top: 2px solid ${DefaultColor};
+  border-bottom: 2px solid ${DefaultColor};
+  display: flex;
+  flex-direction: column;
+`;
+
+const BtnContainer = styled.div`
+  width: 410px;
+  height: 62px;
+  border: 3px solid ${DefaultColor};
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const BtnOperator = styled.button`
+  width: 120px;
+  height: 62px;
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  font-weight: 700;
+  font-size: 30px;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const BtnDisplay = styled.div`
+  width: 120px;
+  padding-top: 5px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 30px;
 `;
 
 export {
@@ -159,4 +211,9 @@ export {
   TableImg,
   TableData,
   TableDataLabel,
+  TableEnabled,
+  RequestContainer,
+  BtnContainer,
+  BtnOperator,
+  BtnDisplay,
 };

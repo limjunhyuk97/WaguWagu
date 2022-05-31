@@ -9,14 +9,21 @@ import Header from "@Organisms/Header/";
 import Footer from "@Organisms/Footer/";
 import Title from "./Title";
 import TableAdd from "./TableAdd";
-import TableDetail from "./TableDetail";
+import TableGroup from "./TableGroup";
+import Chart from "./Chart";
+import RequestGroup from "./RequestGroup";
 
 import { USER_KEY, USER_NAME, removeCookie, getCookie } from "@Util/cookie";
 import { scrollTop } from "@Util/scrollTop";
 
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getTableInfo, postTableInfo, deleteTableInfo } from "@API/";
+import {
+  getTableInfo,
+  postTableInfo,
+  deleteTableInfo,
+  putTableInfo,
+} from "@API/";
 
 const AdminTable = () => {
   // login
@@ -25,6 +32,7 @@ const AdminTable = () => {
 
   // data
   const [data, setData] = useState({});
+
   const [newTable, setNewTable] = useState({
     name: "",
     description: "",
@@ -45,7 +53,7 @@ const AdminTable = () => {
   };
 
   // TableList
-  // Add Table : 다른 효율적인 방법을 찾고 싶다.. 일단은 진행..!
+  // Adjust Table
   const handleTableInput = (e) => {
     switch (e.target.id) {
       case "new-name":
@@ -77,6 +85,7 @@ const AdminTable = () => {
     }
   };
 
+  // Add Table : 다른 효율적인 방법을 찾고 싶다.. 일단은 진행..!
   const handleTableAdd = async (e) => {
     const userID = getCookie(USER_KEY);
     await postTableInfo({ userID: userID, data: newTable })
@@ -85,20 +94,41 @@ const AdminTable = () => {
         setRender((cur) => !cur);
       })
       .catch((err) => {
-        console.error(err);
+        alert("테이블 명이 중복되었습니다!");
       });
   };
 
   // Adjust Table
-  const handleModify = (e) => {};
+  const handleModify = () => {
+    setRender((cur) => !cur);
+  };
 
   // Enable Table
-  const handleSleepAndWake = () => {};
+  const handleSleepAndWake = async (e) => {
+    const userID = getCookie(USER_KEY);
+    const targetID = e.target.dataset.tableid;
+    const targetTable = data.tables.filter((el) => `${el.id}` === targetID)[0];
 
-  // Delete Table
+    putTableInfo({
+      userID: userID,
+      tableID: targetID,
+      data: {
+        description: targetTable.description,
+        enabled: !targetTable.enabled,
+        maxCustomerCount: targetTable.maxCustomerCount,
+        minOrderAmount: targetTable.minOrderAmount,
+        name: targetTable.name,
+      },
+    })
+      .then((res) => {
+        setRender((cur) => !cur);
+      })
+      .catch((err) => console.error(err));
+  };
+
+  // Delete Table :
   const handleDelete = async (e) => {
     const userID = getCookie(USER_KEY);
-    console.log(e.target.dataset.tableid);
     await deleteTableInfo({
       userID: userID,
       tableID: e.target.dataset.tableid,
@@ -111,6 +141,10 @@ const AdminTable = () => {
         console.error(err);
       });
   };
+
+  // Chart
+
+  // RequestList
 
   // UseEffect
   useEffect(() => {
@@ -129,7 +163,6 @@ const AdminTable = () => {
   useEffect(() => {
     const status = getCookie(USER_KEY);
     getTableInfo(status).then((res) => {
-      console.log(res.data);
       setData(res.data);
     });
   }, [render]);
@@ -140,19 +173,24 @@ const AdminTable = () => {
       <Title />
       <StoreContainer>
         <FlexContainer>
-          <LeftContainer style={{ marginRight: "20px" }}>
+          <LeftContainer>
             <TableAdd
               handleTableInput={handleTableInput}
               handleTableAdd={handleTableAdd}
             />
-            <TableDetail
+            <TableGroup
               tables={data.tables}
               modify={handleModify}
               sleepAndWake={handleSleepAndWake}
               delete={handleDelete}
             />
           </LeftContainer>
-          <RightContainer style={{ marginLeft: "20px" }}></RightContainer>
+          <RightContainer>
+            <div style={{ height: "500px", width: "500px", marginTop: "70px" }}>
+              <Chart data={data.tables} />
+              <RequestGroup />
+            </div>
+          </RightContainer>
         </FlexContainer>
       </StoreContainer>
       <Footer />

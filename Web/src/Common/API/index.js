@@ -49,3 +49,7 @@ export const POST_TABLE_INFO = (params) => {
 export const DEL_TABLE_INFO = (params) => {
   return `https://diunbu3dmy.ap-northeast-1.awsapprunner.com:443/api/v1/restaurants/${params.userID}/tables/${params.tableID}`;
 };
+
+export const PUT_TABLE_INFO = (params) => {
+  return `https://diunbu3dmy.ap-northeast-1.awsapprunner.com:443/api/v1/restaurants/${params.userID}/tables/${params.tableID}`;
+};

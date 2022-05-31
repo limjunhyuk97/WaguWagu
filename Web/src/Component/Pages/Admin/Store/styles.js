@@ -206,7 +206,7 @@ const MenuContainer = styled.div`
 const MenuImg = styled.img`
   width: 180px;
   height: 150px;
-  margin-right: 10px;
+  margin-right: 20px;
 `;
 
 const MenuDataContainer = styled.div``;
