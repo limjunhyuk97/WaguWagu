@@ -24,18 +24,19 @@ const MenuAdd = (props) => {
         <MenuDataContainer>
           <MenuData
             placeholder={" 메뉴명 입력"}
-            id="add--menu--name"
             onChange={props.handleNewNameChange}
           ></MenuData>
           <MenuData
             placeholder={" 가격 입력"}
-            id="add--menu--price"
             onChange={props.handleNewCostChange}
           ></MenuData>
         </MenuDataContainer>
         <MenuBtns>
           <Btn
-            style={{ width: "160px", margin: "8px" }}
+            style={{
+              width: "160px",
+              margin: "80px 8px 0px 8px",
+            }}
             onClick={props.handleAddItem}
           >
             추가

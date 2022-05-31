@@ -5,10 +5,10 @@ import {
   GET_RESTAURANT_INFO,
   PUT_RESTAURANT_INFO,
   POST_MENU_INFO,
+  PUT_MENU_INFO,
+  DEL_MENU_INFO,
 } from "@Common/API";
 import axios from "axios";
-
-import { USER_KEY, getCookie } from "@Common/Util/cookie";
 
 // login
 export const postAccountInfo = async (params) => {
@@ -50,5 +50,21 @@ export const postMenuInfo = async (params) => {
     {
       headers: { "Content-Type": `application/json` },
     }
+  );
+};
+
+export const putMenuInfo = async (params) => {
+  return await axios.put(
+    `${PUT_MENU_INFO}/${params.userID}/menu/${params.menuID}`,
+    JSON.stringify(params.data),
+    {
+      headers: { "Content-Type": `application/json` },
+    }
+  );
+};
+
+export const deleteMenuInfo = async (params) => {
+  return await axios.delete(
+    `${DEL_MENU_INFO}/${params.userID}/menu/${params.menuID}`
   );
 };

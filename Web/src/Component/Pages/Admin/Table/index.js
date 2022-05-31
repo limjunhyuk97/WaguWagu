@@ -12,12 +12,12 @@ const AdminTable = () => {
   const [loginStatus, setLoginStatus] = useState(false);
 
   const handleLoginout = (menuName, linkTo) => {
-    navigate(linkTo);
     if (menuName === "로그아웃") {
       setLoginStatus(false);
       removeCookie(USER_KEY);
       removeCookie(USER_NAME);
     }
+    navigate(linkTo);
   };
 
   useEffect(() => {

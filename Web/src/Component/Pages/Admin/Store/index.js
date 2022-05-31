@@ -17,7 +17,12 @@ import { scrollTop } from "@Util/scrollTop";
 
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getRestaurantInfo, putRestaurantInfo, postMenuInfo } from "@API";
+import {
+  getRestaurantInfo,
+  putRestaurantInfo,
+  postMenuInfo,
+  deleteMenuInfo,
+} from "@API";
 
 const AdminTable = () => {
   const navigate = useNavigate();
@@ -126,22 +131,39 @@ const AdminTable = () => {
       });
   };
 
-  // Change Item data
-  const handleChangeItem =
-    // Delete Item
+  // Change Item data (보류)
+  // const handleItemPut = (e) => {
+  // };
 
-    // ============= useEffect ============= //
-
-    // 초기 랜더링 위한 useEffect
-    useEffect(() => {
-      scrollTop();
-      const status = getCookie(USER_KEY);
-      if (status) setLoginStatus(true);
-      else setLoginStatus(false);
-      getRestaurantInfo(status).then((res) => {
-        setData(res.data);
+  // Delete Item
+  const handleItemDelete = async (e) => {
+    const userID = getCookie(USER_KEY);
+    console.log(e.target.dataset.id);
+    await deleteMenuInfo({
+      userID: userID,
+      menuID: e.target.dataset.menuid,
+    })
+      .then(() => {
+        alert("메뉴가 성공적으로 지워졌습니다!");
+        setRender((cur) => !cur);
+      })
+      .catch((err) => {
+        console.error(err);
       });
-    }, []);
+  };
+
+  // ============= useEffect ============= //
+
+  // 초기 랜더링 위한 useEffect
+  useEffect(() => {
+    scrollTop();
+    const status = getCookie(USER_KEY);
+    if (status) setLoginStatus(true);
+    else setLoginStatus(false);
+    getRestaurantInfo(status).then((res) => {
+      setData(res.data);
+    });
+  }, []);
 
   // render가 변경되면 useEffect 호출해서 맨 위로 끌어올리고 data 다시 받아오셈
   useEffect(() => {
@@ -175,7 +197,7 @@ const AdminTable = () => {
               handleNewCostChange={handleNewCostChange}
               handleAddItem={handleAddItem}
             />
-            <MenuDetail menu={data.menu} />
+            <MenuDetail menu={data.menu} del={handleItemDelete} />
           </RightContainer>
         </FlexContainer>
       </StoreContainer>
