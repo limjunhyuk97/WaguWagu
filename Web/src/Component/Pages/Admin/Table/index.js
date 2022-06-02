@@ -90,8 +90,14 @@ const AdminTable = () => {
   // Add Table : 다른 효율적인 방법을 찾고 싶다.. 일단은 진행..!
   const handleTableAdd = async (e) => {
     const userID = getCookie(USER_KEY);
-    if (newTable.name === "") alert("테이블명을 입력하세요!");
-    if (newTable.description === "") alert("테이블 설명을 입력해주세요!");
+    if (newTable.name === "") {
+      alert("테이블명을 입력하세요!");
+      return;
+    }
+    if (newTable.description === "") {
+      alert("테이블 설명을 입력해주세요!");
+      return;
+    }
     await postTableInfo({ userID: userID, data: newTable })
       .then((res) => {
         alert("테이블 정보가 추가되었습니다!");
