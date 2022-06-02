@@ -19,17 +19,14 @@ const Chart = (props) => {
         { title: "Enabled", value: countEnables().enabled, color: "green" },
         { title: "Disabled", value: countEnables().disabled, color: "red" },
       ]}
-      animate={true}
-      animationDuration={200}
-      animationEasing={"ease-out"}
       label={({ dataEntry }) =>
         `${
           dataEntry.title === "Enabled"
-            ? `활성 / ${dataEntry.percentage.toFixed(1)}%`
-            : `비활성 / ${dataEntry.percentage.toFixed(1)}%`
+            ? `활성 / ${dataEntry.value} 석`
+            : `비활성 / ${dataEntry.value} 석`
         }`
       }
-      labelStyle={{ fontSize: "5px", fontWeight: "600" }}
+      labelStyle={{ fontSize: "5px", fontWeight: "700" }}
       radius={50}
       style={{ opacity: "0.9", marginBottom: "150px" }}
       lineWidth={20}

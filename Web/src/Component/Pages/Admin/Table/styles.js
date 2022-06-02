@@ -44,6 +44,7 @@ const LeftContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0px 20px;
 `;
 
 const RightContainer = styled.div`
@@ -51,6 +52,7 @@ const RightContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0px 20px;
 `;
 
 const EditContainer = styled.div`
@@ -154,9 +156,9 @@ const TableEnabled = styled.div`
 
 // Request
 const RequestContainer = styled.div`
-  width: 630px;
+  width: 700px;
   height: 160px;
-  margin: 1px 0px -3px 0px;
+  margin: 1px 0px -3px 1px;
   border-top: 2px solid ${DefaultColor};
   border-bottom: 2px solid ${DefaultColor};
   display: flex;

@@ -10,7 +10,7 @@ const TableGroup = (props) => {
   const renderItems = () => {
     // props.menu가 내려왔을 때 rendering을 시켜주어야 함
     // data- 로 시작하는 속성으로 특정 값을 DOM내부에 저장해줄 수 있다.
-    if (props.tables)
+    if (props.tables) {
       return props.tables.map((el) => {
         return (
           <TableComponent
@@ -21,7 +21,7 @@ const TableGroup = (props) => {
           />
         );
       });
-    else return;
+    } else return;
   };
 
   return (

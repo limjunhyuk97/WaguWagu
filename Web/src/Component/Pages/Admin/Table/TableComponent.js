@@ -53,11 +53,9 @@ const TableComponent = (props) => {
         description: description === "" ? props.el.description : description,
         enabled: props.el.enabled,
         maxCustomerCount:
-          maxCustomerCount === ""
-            ? props.el.maxCustomerCount
-            : maxCustomerCount,
+          maxCustomerCount === 0 ? props.el.maxCustomerCount : maxCustomerCount,
         minOrderAmount:
-          minOrderAmount === "" ? props.el.minOrderAmount : minOrderAmount,
+          minOrderAmount === 0 ? props.el.minOrderAmount : minOrderAmount,
         name: name === "" ? props.el.name : name,
       },
     })
@@ -75,7 +73,7 @@ const TableComponent = (props) => {
       <TableImg src={TABLE_IMG} />
       <TableDataContainer>
         <TableEnabled enabled={props.el.enabled}>
-          {props.el.enabled ? "가용" : "비활성"}
+          {props.el.enabled ? "활성" : "비활성"}
         </TableEnabled>
         <div>
           <TableData
