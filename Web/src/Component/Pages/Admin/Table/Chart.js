@@ -17,7 +17,7 @@ const Chart = (props) => {
     <PieChart
       data={[
         { title: "Enabled", value: countEnables().enabled, color: "green" },
-        { title: "Disabled", value: countEnables().disabled, color: "red" },
+        { title: "Disabled", value: countEnables().disabled, color: "#c4c4c4" },
       ]}
       label={({ dataEntry }) =>
         `${
