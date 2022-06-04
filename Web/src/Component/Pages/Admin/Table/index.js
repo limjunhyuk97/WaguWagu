@@ -178,7 +178,7 @@ const AdminTable = () => {
     getReservationInfo(status).then((res) => {
       setReservation(res.data);
     });
-  }, [render]);
+  }, [render, reservation]);
 
   return (
     <>

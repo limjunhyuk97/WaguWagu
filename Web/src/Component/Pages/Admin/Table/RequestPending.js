@@ -86,7 +86,7 @@ const RequestPending = (props) => {
   };
 
   useEffect(() => {
-    const date = new Date(props.el.createdTimeAt);
+    const date = new Date(props.el.createdTimeAt * 1000);
     setHour(date.getHours());
     setMinute(date.getMinutes());
   }, [props.el.createdTimeAt]);

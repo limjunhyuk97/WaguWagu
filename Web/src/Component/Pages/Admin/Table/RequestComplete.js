@@ -4,7 +4,7 @@ import { deleteReservationInfo } from "@API";
 
 const RequestComplete = (props) => {
   const convertToDate = (timeStamp) => {
-    const date = new Date(timeStamp * 1000);
+    const date = new Date(timeStamp * 1000 * 1000);
     return {
       year: date.getFullYear(),
       month: date.getMonth(),
@@ -17,6 +17,7 @@ const RequestComplete = (props) => {
   const handleFinished = async (e) => {
     await deleteReservationInfo(props.el.id)
       .then(() => {
+        alert("방문 완료 처리 완료");
         props.modify();
       })
       .catch((err) => {
@@ -59,7 +60,7 @@ const RequestComplete = (props) => {
                 convertToDate(props.el.deadlineTime).hour > 12
                   ? `PM ${convertToDate(props.el.deadlineTime).hour - 12}`
                   : `AM ${convertToDate(props.el.deadlineTime).hour}`
-              } : ${convertToDate(props.el.deadlineTime).minute} 요청`
+              } : ${convertToDate(props.el.deadlineTime).minute} 방문`
             : "거절됨"}
         </h3>
       </div>
