@@ -17,7 +17,7 @@ const RequestComplete = (props) => {
   const handleFinished = async (e) => {
     await deleteReservationInfo(props.el.id)
       .then(() => {
-        alert("방문 완료 처리 완료");
+        alert("방문 / 거절 처리 완료");
         props.modify();
       })
       .catch((err) => {
@@ -54,7 +54,7 @@ const RequestComplete = (props) => {
         </h2>
         <h3 style={{ color: props.status ? "green" : "red" }}>
           {props.status
-            ? `[${convertToDate(props.el.deadlineTime).month}/${
+            ? `[${convertToDate(props.el.deadlineTime).month + 1}/${
                 convertToDate(props.el.deadlineTime).date
               }] ${
                 convertToDate(props.el.deadlineTime).hour > 12

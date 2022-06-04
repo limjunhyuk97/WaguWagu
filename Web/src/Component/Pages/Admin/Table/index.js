@@ -34,7 +34,6 @@ const AdminTable = () => {
   // data
   const [data, setData] = useState({});
   const [reservation, setReservation] = useState([]);
-
   const [newTable, setNewTable] = useState({
     name: "",
     description: "",
@@ -152,8 +151,6 @@ const AdminTable = () => {
       });
   };
 
-  // RequestList
-
   useEffect(() => {
     scrollTop();
     const status = getCookie(USER_KEY);
@@ -196,6 +193,7 @@ const AdminTable = () => {
               modify={handleModify}
               sleepAndWake={handleSleepAndWake}
               delete={handleDelete}
+              reservations={reservation.reservations}
             />
           </LeftContainer>
           <RightContainer>

@@ -10,11 +10,9 @@ const sharedBtn = css`
   font-weight: 800;
   font-size: 25px;
   background-color: #ffffff;
-  color: #000000;
   border: 1px solid #d0d2e0;
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px #00000040;
-  transition: 0.2s;
   &:hover {
     color: #ffffff;
     border-color: ${DefaultColor};
@@ -27,6 +25,15 @@ const Btn = styled.button`
   width: 121px;
   height: 40px;
   ${sharedBtn}
+  color: ${(props) => (props.occupied ? "#c4c4c4" : "#000000")};
+  transition: ${(props) => (props.occupied ? "0s" : "0.2s")};
+  &:hover {
+    color: ${(props) => (props.occupied ? "#c4c4c4" : "#ffffff")};
+    border-color: ${(props) => (props.occupied ? "#C4C4C4" : { DefaultColor })};
+    background-color: ${(props) =>
+      props.occupied ? "#ffffff" : { DefaultColor }};
+    cursor: ${(props) => (props.occupied ? "auto" : "pointer")};
+  }
 `;
 
 // Common

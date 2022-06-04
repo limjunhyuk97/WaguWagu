@@ -18,6 +18,7 @@ const TableGroup = (props) => {
             sleepAndWake={props.sleepAndWake}
             delete={props.delete}
             modify={props.modify}
+            reservations={props.reservations}
           />
         );
       });
