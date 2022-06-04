@@ -60,6 +60,7 @@ const RequestPending = (props) => {
     })
       .then((res) => {
         alert("수락이 완료되었습니다!");
+        props.setOccupiedCount((cur) => cur + 1);
         props.modify();
       })
       .catch((err) => {

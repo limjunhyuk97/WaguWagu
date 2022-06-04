@@ -18,6 +18,7 @@ const RequestComplete = (props) => {
     await deleteReservationInfo(props.el.id)
       .then(() => {
         alert("방문 / 거절 처리 완료");
+        props.setOccupiedCount((cur) => cur - 1);
         props.modify();
       })
       .catch((err) => {

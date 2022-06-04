@@ -40,6 +40,7 @@ const AdminTable = () => {
     maxCustomerCount: 0,
     minOrderAmout: 0,
   });
+  const [occupiedCount, setOccupiedCount] = useState(0);
 
   //render
   const [render, setRender] = useState(true);
@@ -198,10 +199,11 @@ const AdminTable = () => {
           </LeftContainer>
           <RightContainer>
             <div style={{ height: "500px", width: "500px", marginTop: "70px" }}>
-              <Chart data={data.tables} />
+              <Chart data={data.tables} occupiedCount={occupiedCount} />
               <RequestGroup
                 reservations={reservation.reservations}
                 modify={handleModify}
+                setOccupiedCount={setOccupiedCount}
               />
             </div>
           </RightContainer>

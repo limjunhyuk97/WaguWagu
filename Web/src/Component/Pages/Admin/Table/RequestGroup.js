@@ -16,7 +16,11 @@ const RequestGroup = (props) => {
         return props.reservations.map((el) => {
           if (el.status === RESERVATION_STATUS.REQUEST) {
             return (
-              <RequestPending el={el} modify={props.modify}></RequestPending>
+              <RequestPending
+                el={el}
+                modify={props.modify}
+                setOccupiedCount={props.setOccupiedCount}
+              ></RequestPending>
             );
           } else if (el.status === RESERVATION_STATUS.APPROVE) {
             return (
@@ -24,6 +28,7 @@ const RequestGroup = (props) => {
                 el={el}
                 modify={props.modify}
                 status={true}
+                setOccupiedCount={props.setOccupiedCount}
               ></RequestComplete>
             );
           } else if (el.status === RESERVATION_STATUS.REJECT) {
