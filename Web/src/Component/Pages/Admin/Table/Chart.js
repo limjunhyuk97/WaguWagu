@@ -26,7 +26,7 @@ const Chart = (props) => {
             : `비활성 / ${dataEntry.value} 석`
         }`
       }
-      labelStyle={{ fontSize: "5px", fontWeight: "700" }}
+      labelStyle={{ fontSize: "5px", fontWeight: "600" }}
       radius={50}
       style={{ opacity: "0.9", marginBottom: "150px" }}
       lineWidth={20}

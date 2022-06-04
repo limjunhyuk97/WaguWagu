@@ -7,8 +7,9 @@ import {
 } from "./styles";
 
 import { putReservationInfo } from "@API";
+import { RESERVATION_STATUS } from "@Common";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const RequestPending = (props) => {
   const [hour, setHour] = useState(12);
@@ -51,7 +52,11 @@ const RequestPending = (props) => {
   const handleApprove = async (e) => {
     await putReservationInfo({
       reservationID: props.el.id,
-      data: { "restaurantID": props.el.restaurantID, "status": "APPROVED" },
+      data: {
+        "restaurantID": props.el.restaurantID,
+        "status": RESERVATION_STATUS.APPROVE,
+        "deadlineTime": props.el.createdTimeAt + 60 * deductLimit,
+      },
     })
       .then((res) => {
         alert("수락이 완료되었습니다!");
@@ -65,16 +70,26 @@ const RequestPending = (props) => {
   const handleDeny = async (e) => {
     await putReservationInfo({
       reservationID: props.el.id,
-      data: { "restaurantID": props.el.restaurantID, "status": "DENIED" },
+      data: {
+        "restaurantID": props.el.restaurantID,
+        "status": RESERVATION_STATUS.REJECT,
+        "deadlineTime": props.el.createdTimeAt + 60 * deductLimit,
+      },
     })
       .then((res) => {
-        alert("수락이 완료되었습니다!");
+        alert("거절이 완료되었습니다!");
         props.modify();
       })
       .catch((err) => {
         console.error(err);
       });
   };
+
+  useEffect(() => {
+    const date = new Date(props.el.createdTimeAt);
+    setHour(date.getHours());
+    setMinute(date.getMinutes());
+  }, [props.el.createdTimeAt]);
 
   return (
     <RequestContainer>

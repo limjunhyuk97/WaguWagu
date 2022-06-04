@@ -180,13 +180,6 @@ const AdminTable = () => {
     });
   }, [render]);
 
-  useEffect(() => {
-    const status = getCookie(USER_KEY);
-    getReservationInfo(status).then((res) => {
-      setReservation(res.data);
-    });
-  });
-
   return (
     <>
       <Header loginStatus={loginStatus} onClick={handleLoginout} />

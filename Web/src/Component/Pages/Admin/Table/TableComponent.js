@@ -72,7 +72,12 @@ const TableComponent = (props) => {
     <TableContainer style={{ margin: "1px 0px -3px 0px" }}>
       <TableImg src={TABLE_IMG} />
       <TableDataContainer>
-        <TableEnabled enabled={props.el.enabled}>
+        <TableEnabled
+          enabled={props.el.enabled}
+          style={{
+            color: props.el.enabled ? "green" : "#C4C4C4",
+          }}
+        >
           {props.el.enabled ? "활성" : "비활성"}
         </TableEnabled>
         <div>

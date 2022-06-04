@@ -3,6 +3,17 @@ import { Btn, RequestContainer } from "./styles";
 import { deleteReservationInfo } from "@API";
 
 const RequestComplete = (props) => {
+  const convertToDate = (timeStamp) => {
+    const date = new Date(timeStamp * 1000);
+    return {
+      year: date.getFullYear(),
+      month: date.getMonth(),
+      date: date.getDate(),
+      hour: date.getHours(),
+      minute: date.getMinutes(),
+    };
+  };
+
   const handleFinished = async (e) => {
     await deleteReservationInfo(props.el.id)
       .then(() => {
@@ -30,10 +41,27 @@ const RequestComplete = (props) => {
             display: "flex",
           }}
         >
-          {`테이블 ${props.el.table.name}`}
-          <span style={{ marginLeft: "15px", color: "red" }}>{"수락"}</span>
+          {`[테이블] ${props.el.table.name}`}
+          <span
+            style={{
+              marginLeft: "15px",
+              color: props.status ? "green" : "red",
+            }}
+          >
+            {props.status ? "수락" : "거절"}
+          </span>
         </h2>
-        <h3 style={{ color: "red" }}>12:50 방문 예정</h3>
+        <h3 style={{ color: props.status ? "green" : "red" }}>
+          {props.status
+            ? `[${convertToDate(props.el.deadlineTime).month}/${
+                convertToDate(props.el.deadlineTime).date
+              }] ${
+                convertToDate(props.el.deadlineTime).hour > 12
+                  ? `PM ${convertToDate(props.el.deadlineTime).hour - 12}`
+                  : `AM ${convertToDate(props.el.deadlineTime).hour}`
+              } : ${convertToDate(props.el.deadlineTime).minute} 요청`
+            : "거절됨"}
+        </h3>
       </div>
       <div
         style={{
@@ -44,7 +72,7 @@ const RequestComplete = (props) => {
         }}
       >
         <Btn style={{ width: "160px" }} onClick={handleFinished}>
-          방문 완료
+          {props.status ? "방문 완료" : "내역 제거"}
         </Btn>
       </div>
     </RequestContainer>

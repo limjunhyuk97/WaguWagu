@@ -18,13 +18,23 @@ const RequestGroup = (props) => {
             return (
               <RequestPending el={el} modify={props.modify}></RequestPending>
             );
-          }
-          if (el.status === RESERVATION_STATUS.APPROVE) {
+          } else if (el.status === RESERVATION_STATUS.APPROVE) {
             return (
-              <RequestComplete el={el} modify={props.modify}></RequestComplete>
+              <RequestComplete
+                el={el}
+                modify={props.modify}
+                status={true}
+              ></RequestComplete>
             );
-          }
-          return <></>;
+          } else if (el.status === RESERVATION_STATUS.REJECT) {
+            return (
+              <RequestComplete
+                el={el}
+                modify={props.modify}
+                status={false}
+              ></RequestComplete>
+            );
+          } else return <></>;
         });
       } else {
         return (

@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 const TableGroup = (props) => {
   // props.menu가 내려왔을 때 그때 rendering을 한번 더 시켜줌
-  useEffect(() => {}, [props.tables]);
+  useEffect(() => {}, [props.tables, props.reservations]);
 
   const renderItems = () => {
     // props.menu가 내려왔을 때 rendering을 시켜주어야 함
