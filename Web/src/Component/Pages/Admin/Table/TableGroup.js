@@ -1,4 +1,4 @@
-import { EditContainer, EditText, EditVector } from "./styles";
+import { EditContainer, EditText, EditVector, TableContainer } from "./styles";
 import TableComponent from "./TableComponent";
 
 import { EDIT_VECTOR } from "@Common";
@@ -13,18 +13,36 @@ const TableGroup = (props) => {
     // props.menu가 내려왔을 때 rendering을 시켜주어야 함
     // data- 로 시작하는 속성으로 특정 값을 DOM내부에 저장해줄 수 있다.
     if (props.tables) {
-      return props.tables.map((el) => {
+      if (props.tables.length !== 0) {
+        return props.tables.map((el) => {
+          return (
+            <TableComponent
+              el={el}
+              sleepAndWake={props.sleepAndWake}
+              delete={props.delete}
+              modify={props.modify}
+              reservations={props.reservations}
+            />
+          );
+        });
+      } else {
         return (
-          <TableComponent
-            el={el}
-            sleepAndWake={props.sleepAndWake}
-            delete={props.delete}
-            modify={props.modify}
-            reservations={props.reservations}
-          />
+          <TableContainer
+            style={{
+              fontSize: "30px",
+              fontWeight: "700",
+              justifyContent: "center",
+            }}
+          >
+            아직 테이블이 없군요! 등록해주세요!
+          </TableContainer>
         );
-      });
-    } else return;
+      }
+    } else {
+      return (
+        <TableContainer>아직 테이블이 없군요! 등록해주세요!</TableContainer>
+      );
+    }
   };
 
   return (
