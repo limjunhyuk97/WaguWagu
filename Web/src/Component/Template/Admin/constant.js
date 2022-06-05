@@ -29,12 +29,12 @@ export const AccountManagement = [
 export const StoreManagement = [
   {
     title: "매장 정보 관리",
-    subtitle: "매장 대표 사진, 메뉴 등록, 메뉴 사진 등록, 자리 사진 등록",
+    subtitle: "매장 대표 사진, 메뉴 등록, 메뉴 사진 등록",
     linkTo: "/admin/store",
   },
   {
     title: "예약 정보 관리 ",
-    subtitle: "시간별 예약관리, 예약 가능한 좌석 설정",
+    subtitle: "좌석 관리, 시간별 예약관리, 예약 가능한 좌석 등록",
     linkTo: "/admin/table",
   },
 ];
