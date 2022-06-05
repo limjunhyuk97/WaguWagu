@@ -10,10 +10,11 @@ import {
   StoreManagement,
 } from "./constant";
 
-import { removeCookie, USER_KEY, USER_NAME } from "@Util/cookie";
+import { removeCookie, getCookie, USER_KEY, USER_NAME } from "@Util/cookie";
+import { scrollTop } from "@Util/scrollTop";
 
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // mainTitle, subTitle, linkTo
 
@@ -42,20 +43,48 @@ const AdminTemplate = () => {
     navigate(linkTo);
   };
 
+  useEffect(() => {
+    scrollTop();
+    const status = getCookie(USER_KEY);
+    if (status) setLoginStatus(true);
+    else setLoginStatus(false);
+  }, []);
+
   return (
     <>
       <Header loginStatus={loginStatus} onClick={handleLoginout} />
-      <MainContainer>
-        <Title text={MainTitle} />
-        <MenuContainer>
-          <Index text={AccountManagementTitle}></Index>
-          <MenuItemContainer>{renderMenu(AccountManagement)}</MenuItemContainer>
-        </MenuContainer>
-        <MenuContainer>
-          <Index text={StoreManagementTitle}></Index>
-          <MenuItemContainer>{renderMenu(StoreManagement)}</MenuItemContainer>
-        </MenuContainer>
-      </MainContainer>
+      {loginStatus ? (
+        <>
+          <MainContainer>
+            <Title text={MainTitle} />
+            <MenuContainer>
+              <Index text={AccountManagementTitle}></Index>
+              <MenuItemContainer>
+                {renderMenu(AccountManagement)}
+              </MenuItemContainer>
+            </MenuContainer>
+            <MenuContainer>
+              <Index text={StoreManagementTitle}></Index>
+              <MenuItemContainer>
+                {renderMenu(StoreManagement)}
+              </MenuItemContainer>
+            </MenuContainer>
+          </MainContainer>
+        </>
+      ) : (
+        <div
+          style={{
+            height: "1000px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div style={{ fontWeight: "800", fontSize: "40px" }}>
+            앗! 로그인이 안되어 있어요!
+          </div>
+        </div>
+      )}
       <Footer></Footer>
     </>
   );

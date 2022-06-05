@@ -152,6 +152,8 @@ const AdminTable = () => {
       });
   };
 
+  // ============= useEffect ============= //
+
   useEffect(() => {
     scrollTop();
     const status = getCookie(USER_KEY);
@@ -181,34 +183,53 @@ const AdminTable = () => {
   return (
     <>
       <Header loginStatus={loginStatus} onClick={handleLoginout} />
-      <Title />
-      <StoreContainer>
-        <FlexContainer>
-          <LeftContainer>
-            <TableAdd
-              handleTableInput={handleTableInput}
-              handleTableAdd={handleTableAdd}
-            />
-            <TableGroup
-              tables={data.tables}
-              modify={handleModify}
-              sleepAndWake={handleSleepAndWake}
-              delete={handleDelete}
-              reservations={reservation.reservations}
-            />
-          </LeftContainer>
-          <RightContainer>
-            <div style={{ height: "500px", width: "500px", marginTop: "70px" }}>
-              <Chart data={data.tables} occupiedCount={occupiedCount} />
-              <RequestGroup
-                reservations={reservation.reservations}
-                modify={handleModify}
-                setOccupiedCount={setOccupiedCount}
-              />
-            </div>
-          </RightContainer>
-        </FlexContainer>
-      </StoreContainer>
+      {loginStatus ? (
+        <>
+          <Title />
+          <StoreContainer>
+            <FlexContainer>
+              <LeftContainer>
+                <TableAdd
+                  handleTableInput={handleTableInput}
+                  handleTableAdd={handleTableAdd}
+                />
+                <TableGroup
+                  tables={data.tables}
+                  modify={handleModify}
+                  sleepAndWake={handleSleepAndWake}
+                  delete={handleDelete}
+                  reservations={reservation.reservations}
+                />
+              </LeftContainer>
+              <RightContainer>
+                <div
+                  style={{ height: "500px", width: "500px", marginTop: "70px" }}
+                >
+                  <Chart data={data.tables} occupiedCount={occupiedCount} />
+                  <RequestGroup
+                    reservations={reservation.reservations}
+                    modify={handleModify}
+                    setOccupiedCount={setOccupiedCount}
+                  />
+                </div>
+              </RightContainer>
+            </FlexContainer>
+          </StoreContainer>
+        </>
+      ) : (
+        <div
+          style={{
+            height: "1000px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div style={{ fontWeight: "800", fontSize: "40px" }}>
+            앗! 로그인이 안되어 있어요!
+          </div>
+        </div>
+      )}
       <Footer />
     </>
   );

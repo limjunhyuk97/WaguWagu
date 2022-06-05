@@ -131,10 +131,6 @@ const AdminTable = () => {
       });
   };
 
-  // Change Item data (보류)
-  // const handleItemPut = (e) => {
-  // };
-
   // Delete Item
   const handleItemDelete = async (e) => {
     const userID = getCookie(USER_KEY);
@@ -176,31 +172,48 @@ const AdminTable = () => {
   return (
     <>
       <Header loginStatus={loginStatus} onClick={handleLoginout} />
-      <Title />
-      <StoreContainer>
-        <FlexContainer>
-          <LeftContainer style={{ marginRight: "20px" }}>
-            <Img />
-            <Store
-              name={data.name}
-              atm={data.arriveTimeoutMinutes}
-              description={data.description}
-              handleNameChange={handleNameChange}
-              handleAtmChange={handleAtmChange}
-              handleDescriptionChange={handleDescriptionChange}
-              handlePost={handleClick}
-            />
-          </LeftContainer>
-          <RightContainer style={{ marginLeft: "20px" }}>
-            <MenuAdd
-              handleNewNameChange={handleNewNameChange}
-              handleNewCostChange={handleNewCostChange}
-              handleAddItem={handleAddItem}
-            />
-            <MenuDetail menu={data.menu} del={handleItemDelete} />
-          </RightContainer>
-        </FlexContainer>
-      </StoreContainer>
+      {loginStatus ? (
+        <>
+          <Title />
+          <StoreContainer>
+            <FlexContainer>
+              <LeftContainer style={{ marginRight: "20px" }}>
+                <Img />
+                <Store
+                  name={data.name}
+                  atm={data.arriveTimeoutMinutes}
+                  description={data.description}
+                  handleNameChange={handleNameChange}
+                  handleAtmChange={handleAtmChange}
+                  handleDescriptionChange={handleDescriptionChange}
+                  handlePost={handleClick}
+                />
+              </LeftContainer>
+              <RightContainer style={{ marginLeft: "20px" }}>
+                <MenuAdd
+                  handleNewNameChange={handleNewNameChange}
+                  handleNewCostChange={handleNewCostChange}
+                  handleAddItem={handleAddItem}
+                />
+                <MenuDetail menu={data.menu} del={handleItemDelete} />
+              </RightContainer>
+            </FlexContainer>
+          </StoreContainer>
+        </>
+      ) : (
+        <div
+          style={{
+            height: "1000px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div style={{ fontWeight: "800", fontSize: "40px" }}>
+            앗! 로그인이 안되어 있어요!
+          </div>
+        </div>
+      )}
       <Footer />
     </>
   );
