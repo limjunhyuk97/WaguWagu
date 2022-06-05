@@ -1,5 +1,7 @@
-import { EditContainer, EditText } from "./styles";
+import { EditContainer, EditText, EditVector } from "./styles";
 import TableComponent from "./TableComponent";
+
+import { EDIT_VECTOR } from "@Common";
 
 import { useEffect } from "react";
 
@@ -28,8 +30,9 @@ const TableGroup = (props) => {
   return (
     <>
       <div style={{ marginTop: "30px" }}>
-        <EditContainer style={{ marginLeft: "410px" }}>
-          <EditText>{"활성 / 비활성 처리"}</EditText>
+        <EditContainer style={{ marginLeft: "472px" }}>
+          <EditVector src={EDIT_VECTOR} />
+          <EditText>{"좌석 정보 변경"}</EditText>
         </EditContainer>
       </div>
 

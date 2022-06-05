@@ -16,7 +16,7 @@ const TableAdd = (props) => {
     <div>
       <EditContainer>
         <EditVector src={EDIT_VECTOR} />
-        <EditText>{"메뉴 수정"}</EditText>
+        <EditText>{"좌석 추가"}</EditText>
       </EditContainer>
       <TableContainer>
         <TableImg src={TABLE_IMG} />
