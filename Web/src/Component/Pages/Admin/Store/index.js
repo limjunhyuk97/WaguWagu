@@ -110,7 +110,6 @@ const AdminTable = () => {
     const userID = getCookie(USER_KEY);
     if (newName === "") {
       alert("메뉴를 입력하세요!");
-
       return;
     }
     await postMenuInfo({
@@ -134,7 +133,7 @@ const AdminTable = () => {
   // Delete Item
   const handleItemDelete = async (e) => {
     const userID = getCookie(USER_KEY);
-    console.log(e.target.dataset.id);
+    console.log(e.target.dataset.menuid);
     await deleteMenuInfo({
       userID: userID,
       menuID: e.target.dataset.menuid,
