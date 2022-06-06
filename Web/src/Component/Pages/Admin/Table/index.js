@@ -15,6 +15,7 @@ import RequestGroup from "./RequestGroup";
 
 import { USER_KEY, USER_NAME, removeCookie, getCookie } from "@Util/cookie";
 import { scrollTop } from "@Util/scrollTop";
+import { RESERVATION_STATUS } from "@Common/";
 
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -166,6 +167,11 @@ const AdminTable = () => {
       setData(res.data);
     });
     getReservationInfo(status).then((res) => {
+      let occupation = 0;
+      res.data.reservations.forEach((el) => {
+        if (el.status === RESERVATION_STATUS.APPROVE) occupation += 1;
+      });
+      setOccupiedCount(occupation);
       setReservation(res.data);
     });
   }, []);
@@ -176,6 +182,11 @@ const AdminTable = () => {
       setData(res.data);
     });
     getReservationInfo(status).then((res) => {
+      let occupation = 0;
+      res.data.reservations.forEach((el) => {
+        if (el.status === RESERVATION_STATUS.APPROVE) occupation += 1;
+      });
+      setOccupiedCount(occupation);
       setReservation(res.data);
     });
   }, [render, reservation]);
@@ -209,7 +220,6 @@ const AdminTable = () => {
                   <RequestGroup
                     reservations={reservation.reservations}
                     modify={handleModify}
-                    setOccupiedCount={setOccupiedCount}
                   />
                 </div>
               </RightContainer>

@@ -11,16 +11,13 @@ import { CHECK_VECTOR, RESERVATION_STATUS } from "@Common";
 
 const RequestGroup = (props) => {
   const renderItems = () => {
+    console.log(props.reservations);
     if (props.reservations !== undefined) {
       if (props.reservations.length !== 0) {
         return props.reservations.map((el) => {
           if (el.status === RESERVATION_STATUS.REQUEST) {
             return (
-              <RequestPending
-                el={el}
-                modify={props.modify}
-                setOccupiedCount={props.setOccupiedCount}
-              ></RequestPending>
+              <RequestPending el={el} modify={props.modify}></RequestPending>
             );
           } else if (el.status === RESERVATION_STATUS.APPROVE) {
             return (
@@ -28,7 +25,6 @@ const RequestGroup = (props) => {
                 el={el}
                 modify={props.modify}
                 status={true}
-                setOccupiedCount={props.setOccupiedCount}
               ></RequestComplete>
             );
           } else if (el.status === RESERVATION_STATUS.REJECT) {
