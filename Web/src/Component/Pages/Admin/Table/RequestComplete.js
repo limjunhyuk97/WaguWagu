@@ -4,7 +4,8 @@ import { deleteReservationInfo } from "@API";
 
 const RequestComplete = (props) => {
   const convertToDate = (timeStamp) => {
-    const date = new Date(timeStamp * 1000 * 1000);
+    console.log(timeStamp);
+    const date = new Date(timeStamp * 1000);
     return {
       year: date.getFullYear(),
       month: date.getMonth(),
