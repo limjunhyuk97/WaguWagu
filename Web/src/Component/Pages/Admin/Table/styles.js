@@ -127,7 +127,7 @@ const TableImg = styled.img`
 const TableData = styled.input`
   width: 250px;
   height: 40px;
-  margin: 5px 20px 5px 0px;
+  margin: 5px 12px 5px 0px;
   border: 1px solid #d0d2e0;
   border-radius: 5px;
   color: #000000;
